@@ -9,10 +9,14 @@
           "System.Threading.Tasks.Extensions": "4.5.4"
         },
         "compile": {
-          "lib/netstandard2.0/PInvoke.Kernel32.dll": {}
+          "lib/netstandard2.0/PInvoke.Kernel32.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/PInvoke.Kernel32.dll": {}
+          "lib/netstandard2.0/PInvoke.Kernel32.dll": {
+            "related": ".xml"
+          }
         }
       },
       "PInvoke.User32/0.7.124": {
@@ -24,10 +28,14 @@
           "Validation": "2.4.15"
         },
         "compile": {
-          "lib/netstandard2.0/PInvoke.User32.dll": {}
+          "lib/netstandard2.0/PInvoke.User32.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/PInvoke.User32.dll": {}
+          "lib/netstandard2.0/PInvoke.User32.dll": {
+            "related": ".xml"
+          }
         }
       },
       "PInvoke.Windows.Core/0.7.124": {
@@ -36,10 +44,14 @@
           "System.Memory": "4.5.4"
         },
         "compile": {
-          "lib/netstandard2.0/PInvoke.Windows.Core.dll": {}
+          "lib/netstandard2.0/PInvoke.Windows.Core.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/PInvoke.Windows.Core.dll": {}
+          "lib/netstandard2.0/PInvoke.Windows.Core.dll": {
+            "related": ".xml"
+          }
         }
       },
       "PInvoke.Windows.ShellScalingApi/0.7.124": {
@@ -48,10 +60,14 @@
           "PInvoke.Windows.Core": "0.7.124"
         },
         "compile": {
-          "lib/netstandard2.0/PInvoke.Windows.ShellScalingApi.dll": {}
+          "lib/netstandard2.0/PInvoke.Windows.ShellScalingApi.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/PInvoke.Windows.ShellScalingApi.dll": {}
+          "lib/netstandard2.0/PInvoke.Windows.ShellScalingApi.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Memory/4.5.4": {
@@ -75,10 +91,14 @@
       "Validation/2.4.15": {
         "type": "package",
         "compile": {
-          "lib/netstandard1.3/Validation.dll": {}
+          "lib/netstandard1.3/Validation.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard1.3/Validation.dll": {}
+          "lib/netstandard1.3/Validation.dll": {
+            "related": ".xml"
+          }
         }
       }
     }
@@ -258,27 +278,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pasha\\.nuget\\packages\\": {},
-    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\pasha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pasha\\Desktop\\TwitchFlashbang\\TwitchFlashbang\\TwitchFlashbang.csproj",
+      "projectUniqueName": "C:\\Users\\pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
       "projectName": "TwitchFlashbang",
-      "projectPath": "C:\\Users\\Pasha\\Desktop\\TwitchFlashbang\\TwitchFlashbang\\TwitchFlashbang.csproj",
-      "packagesPath": "C:\\Users\\Pasha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pasha\\Desktop\\TwitchFlashbang\\TwitchFlashbang\\obj\\",
+      "projectPath": "C:\\Users\\pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+      "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pasha\\Source\\Repos\\TwitchFlashbang\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows7.0"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -311,7 +327,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -323,7 +340,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

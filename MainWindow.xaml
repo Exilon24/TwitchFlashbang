@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitchFlashbang"
         mc:Ignorable="d"
-        WindowState="Maximized" AllowsTransparency="True" WindowStyle="None" Background="#33FFFFFF" Topmost="True">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-
-    </Grid>
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <StackPanel>
+        <TextBlock HorizontalAlignment="Center" FontSize="40" FontWeight="Bold">Twitch Flashbang</TextBlock>
+        <Separator Height="100" Background="Transparent"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="20">Please select a donation handler.</TextBlock>
+        <ComboBox x:Name="donoProviders" Width="300" Height="40" FontSize="20" HorizontalContentAlignment="Center">
+            <ComboBoxItem>Streamlabs</ComboBoxItem>
+        </ComboBox>
+        <Separator Height="140" Background="Transparent"/>
+        <Button Width="200" Height="40" FontSize="20" Click="Button_Click_1">Ready</Button>
+    </StackPanel>
 </Window>
+    

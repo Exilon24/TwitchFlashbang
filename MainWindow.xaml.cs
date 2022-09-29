@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,12 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PInvoke;
+
 
 namespace TwitchFlashbang
 {
@@ -20,9 +23,28 @@ namespace TwitchFlashbang
     /// </summary>
     public partial class MainWindow : Window
     {
+        string? provider;
+
         public MainWindow()
         {
             InitializeComponent();
+        }    
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (donoProviders.SelectedItem != null)
+            { 
+                provider = donoProviders.SelectedItem.ToString();
+                if (overlay.thisOverlay != null)
+                {
+                    overlay.thisOverlay.showOverlay();
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a donation handler.", "ERROR");
+            }
         }
     }
 }

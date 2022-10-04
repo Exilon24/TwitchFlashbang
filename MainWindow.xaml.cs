@@ -13,7 +13,6 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using PInvoke;
 
 
 namespace TwitchFlashbang
@@ -35,11 +34,6 @@ namespace TwitchFlashbang
             if (donoProviders.SelectedItem != null)
             { 
                 provider = donoProviders.SelectedItem.ToString();
-                if (overlay.thisOverlay != null)
-                {
-                    overlay.thisOverlay.showOverlay();
-                    this.Close();
-                }
             }
             else
             {

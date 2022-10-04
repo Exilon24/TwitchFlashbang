@@ -1,16 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pNegHzsJeHwIeBicBC/QFqWoIwh8ZC+O+E7wnSZZQoXGk2wvyqjvCMFFmUNE4Tcee9uFkmGyl4w0N2RFkbAprA==",
+  "dgSpecHash": "fGnHD8Pgy16iq57hwnhGm0ZaXcjEH53bKCFcS9Kl1CUmGi03nJa4hRYl7yY0xyJgzCmPJLKlx5E07w5j6pVzbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\pasha\\.nuget\\packages\\pinvoke.kernel32\\0.7.124\\pinvoke.kernel32.0.7.124.nupkg.sha512",
-    "C:\\Users\\pasha\\.nuget\\packages\\pinvoke.user32\\0.7.124\\pinvoke.user32.0.7.124.nupkg.sha512",
-    "C:\\Users\\pasha\\.nuget\\packages\\pinvoke.windows.core\\0.7.124\\pinvoke.windows.core.0.7.124.nupkg.sha512",
-    "C:\\Users\\pasha\\.nuget\\packages\\pinvoke.windows.shellscalingapi\\0.7.124\\pinvoke.windows.shellscalingapi.0.7.124.nupkg.sha512",
-    "C:\\Users\\pasha\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\pasha\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\pasha\\.nuget\\packages\\validation\\2.4.15\\validation.2.4.15.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

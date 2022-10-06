@@ -36,6 +36,7 @@ namespace TwitchFlashbang
             if (donoProviders.SelectedItem != null)
             { 
                 provider = donoProviders.SelectedItem.ToString();
+                Close();
                 gameOverlay.Run();
             }
             else

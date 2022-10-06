@@ -30,11 +30,6 @@ C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\TwitchFlash
 C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\TwitchFlashbang.runtimeconfig.json
 C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\TwitchFlashbang.dll
 C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\TwitchFlashbang.pdb
-C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\PInvoke.Kernel32.dll
-C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\PInvoke.User32.dll
-C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\PInvoke.Windows.Core.dll
-C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\PInvoke.Windows.ShellScalingApi.dll
-C:\Users\pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\Validation.dll
 C:\Users\pasha\Source\Repos\TwitchFlashbang\obj\Debug\net6.0-windows\TwitchFlashbang.csproj.AssemblyReference.cache
 C:\Users\pasha\Source\Repos\TwitchFlashbang\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\pasha\Source\Repos\TwitchFlashbang\obj\Debug\net6.0-windows\App.g.cs
@@ -52,5 +47,7 @@ C:\Users\pasha\Source\Repos\TwitchFlashbang\obj\Debug\net6.0-windows\refint\Twit
 C:\Users\pasha\Source\Repos\TwitchFlashbang\obj\Debug\net6.0-windows\TwitchFlashbang.pdb
 C:\Users\pasha\Source\Repos\TwitchFlashbang\obj\Debug\net6.0-windows\TwitchFlashbang.genruntimeconfig.cache
 C:\Users\pasha\Source\Repos\TwitchFlashbang\obj\Debug\net6.0-windows\ref\TwitchFlashbang.dll
-C:\Users\pasha\source\repos\TwitchFlashbang\obj\Debug\net6.0-windows\overlay.g.cs
-C:\Users\pasha\source\repos\TwitchFlashbang\obj\Debug\net6.0-windows\overlay.baml
+C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\GameOverlay.dll
+C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\SharpDX.dll
+C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\SharpDX.Direct2D1.dll
+C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\SharpDX.DXGI.dll

@@ -23,6 +23,7 @@ namespace TwitchFlashbang
     public partial class MainWindow : Window
     {
         string? provider;
+        
 
         public MainWindow()
         {
@@ -31,9 +32,11 @@ namespace TwitchFlashbang
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            var gameOverlay = new Overlay();
             if (donoProviders.SelectedItem != null)
             { 
                 provider = donoProviders.SelectedItem.ToString();
+                gameOverlay.Run();
             }
             else
             {

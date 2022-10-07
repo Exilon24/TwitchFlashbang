@@ -51,3 +51,6 @@ C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\GameOverlay
 C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\SharpDX.dll
 C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\SharpDX.Direct2D1.dll
 C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\SharpDX.DXGI.dll
+C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\FlashBangSound.mp3
+C:\Users\Pasha\source\repos\TwitchFlashbang\obj\Debug\net6.0-windows\TwitchFlashbang.Properties.Resources.resources
+C:\Users\Pasha\source\repos\TwitchFlashbang\obj\Debug\net6.0-windows\TwitchFlashbang.csproj.GenerateResource.cache

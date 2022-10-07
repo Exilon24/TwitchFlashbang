@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,7 +25,10 @@ namespace TwitchFlashbang
     {
         string? provider;
         Window behaviourLayer = new Window();
-        
+        CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+        CancellationToken token;
+
+
 
         public MainWindow()
         {
@@ -35,6 +39,7 @@ namespace TwitchFlashbang
             behaviourLayer.Topmost = true;
             behaviourLayer.Background = null;
             behaviourLayer.Closed += BehaviourLayer_Closed;
+            token = cancelTokenSource.Token;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -43,7 +48,7 @@ namespace TwitchFlashbang
             if (donoProviders.SelectedItem != null)
             { 
                 provider = donoProviders.SelectedItem.ToString();
-                Task.Run(() => gameOverlay.Run());
+                Task.Run(() => gameOverlay.Run(), token);
                 behaviourLayer.Show();
                 Close();
             }
@@ -56,7 +61,7 @@ namespace TwitchFlashbang
 
         private void BehaviourLayer_Closed(object? sender, EventArgs e)
         {
-
+            cancelTokenSource.Cancel();
         }
     }
 }

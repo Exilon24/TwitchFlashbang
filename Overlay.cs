@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,7 +23,9 @@ namespace TwitchFlashbang
 		bool flashbanged = false;
 		public bool canFlash = true;
 		int alpha = 255;
-		int queue = 0;
+
+		public int queue = 0;
+
 		bool hasSet = true;
 		int blindFrames = 300;
 		int fadeFrames = 540;
@@ -85,7 +89,11 @@ namespace TwitchFlashbang
 			var gfx = e.Graphics;
 			var theBrush = gfx.CreateSolidBrush(255, 255, 255, 0);
 			Trace.WriteLine(queue);
-			Trace.WriteLine(canFlash);
+			if (queue > 0 && !flashbanged)
+            {
+				flashbanged = true;
+				queue--;
+            }
 
 			if (flashbanged)
 			{
@@ -116,7 +124,6 @@ namespace TwitchFlashbang
 						Trace.WriteLine("SETTING");
 						flashbanged = false;
 						hasSet = true;
-						canFlash = true;
 					}
 				}
 				theBrush = gfx.CreateSolidBrush(255, 255, 255, alpha);
@@ -157,6 +164,12 @@ namespace TwitchFlashbang
 				flashSound.Play();
 				flashbanged = true;
 			}
+			else
+            {
+				queue += 1;
+            }
+
+			MainWindow.queueFlashText.Text = "Queued flashbangs: " + queue;
 		}
 
 		public void Dispose()

@@ -27,6 +27,11 @@ namespace TwitchFlashbang
         Window behaviourLayer = new Window();
         CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
         CancellationToken token;
+        Overlay? gameOverlay;
+        public static TextBlock queueFlashText;
+
+        // User settings
+        public string APIToken;
 
 
 
@@ -38,30 +43,43 @@ namespace TwitchFlashbang
             behaviourLayer.AllowsTransparency = true;
             behaviourLayer.Topmost = true;
             behaviourLayer.Background = null;
+            queueFlashText = queuedFlashbangs;
             behaviourLayer.Closed += BehaviourLayer_Closed;
+
+            APIToken = SocketToken.Password;
+
             token = cancelTokenSource.Token;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var gameOverlay = new Overlay();
+            gameOverlay = new Overlay();
             if (donoProviders.SelectedItem != null)
             { 
                 provider = donoProviders.SelectedItem.ToString();
                 Task.Run(() => gameOverlay.Run(), token);
                 behaviourLayer.Show();
-                Close();
+
             }
             else
             {
                 MessageBox.Show("Please select a donation handler.", "ERROR");
             }
-            gameOverlay.CSGOflash();
+           
         }
 
         private void BehaviourLayer_Closed(object? sender, EventArgs e)
         {
             cancelTokenSource.Cancel();
+            cancelTokenSource.Dispose();
+        }
+
+        private void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (gameOverlay != null)
+            {
+                gameOverlay.CSGOflash();
+            }
         }
     }
 }

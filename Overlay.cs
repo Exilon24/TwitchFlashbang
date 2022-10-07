@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,14 @@ namespace TwitchFlashbang
 
 			private readonly Dictionary<string, SolidBrush> _brushes;
 			private readonly Dictionary<string, Font> _fonts;
+
+			public bool flashbanged = true;
+			int alpha = 255;
+			bool hasSet = true;
+			int blindFrames = 300;
+			int fadeFrames = 540;
+			int currentBlindFrames = 0;
+			int currentFadeFrames = 0;
 
 			public Overlay()
 			{
@@ -68,7 +77,40 @@ namespace TwitchFlashbang
 			private void _window_DrawGraphics(object sender, DrawGraphicsEventArgs e)
 			{
 			var gfx = e.Graphics;
-			var theBrush = gfx.CreateSolidBrush(255, 255, 255, 100);
+			var theBrush = gfx.CreateSolidBrush(255, 255, 255, 0);
+			if (flashbanged)
+            {
+				if (hasSet)
+				{
+					Trace.WriteLine("Setting up flashtim");
+					currentBlindFrames = blindFrames;
+					currentFadeFrames = fadeFrames;
+					hasSet = false;
+					alpha = 255;
+				}
+				
+				if (currentBlindFrames > 0)
+                {
+					currentBlindFrames = currentBlindFrames - 1 ;
+				}
+                else if (currentFadeFrames > 0)
+                {
+					currentFadeFrames = currentFadeFrames - 1;
+					if (alpha > 0)
+                    {
+						alpha = alpha - 1;
+					}
+				}
+				else
+				{
+					hasSet = true;
+					flashbanged = false;
+				}
+				Trace.Write(alpha);
+				theBrush = gfx.CreateSolidBrush(255, 255, 255, alpha);
+
+            }
+
 
 			gfx.ClearScene(theBrush); // What an odd name
 			}

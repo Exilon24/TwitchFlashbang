@@ -36,13 +36,13 @@ namespace TwitchFlashbang
             if (donoProviders.SelectedItem != null)
             { 
                 provider = donoProviders.SelectedItem.ToString();
-                Close();
                 gameOverlay.Run();
             }
             else
             {
                 MessageBox.Show("Please select a donation handler.", "ERROR");
             }
+            gameOverlay.flashbanged = true;
         }
     }
 }

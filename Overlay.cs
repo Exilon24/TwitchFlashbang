@@ -18,8 +18,10 @@ namespace TwitchFlashbang
 			private readonly Dictionary<string, SolidBrush> _brushes;
 			private readonly Dictionary<string, Font> _fonts;
 
-			public bool flashbanged = true;
+			bool flashbanged = false;
+			public bool canFlash = true;
 			int alpha = 255;
+			int queue = 0;
 			bool hasSet = true;
 			int blindFrames = 300;
 			int fadeFrames = 540;
@@ -78,38 +80,43 @@ namespace TwitchFlashbang
 			{
 			var gfx = e.Graphics;
 			var theBrush = gfx.CreateSolidBrush(255, 255, 255, 0);
+			Trace.WriteLine(queue);
+			Trace.WriteLine(canFlash);
+
 			if (flashbanged)
-            {
+			{
 				if (hasSet)
 				{
-					Trace.WriteLine("Setting up flashtim");
 					currentBlindFrames = blindFrames;
 					currentFadeFrames = fadeFrames;
 					hasSet = false;
 					alpha = 255;
 				}
-				
+
 				if (currentBlindFrames > 0)
-                {
-					currentBlindFrames = currentBlindFrames - 1 ;
+				{
+					currentBlindFrames = currentBlindFrames - 1;
 				}
-                else if (currentFadeFrames > 0)
-                {
+				else if (currentFadeFrames > 0)
+				{
 					currentFadeFrames = currentFadeFrames - 1;
 					if (alpha > 0)
-                    {
+					{
 						alpha = alpha - 1;
 					}
-				}
+					}
 				else
 				{
-					hasSet = true;
-					flashbanged = false;
+					if (alpha == 0 && currentBlindFrames == 0 && currentFadeFrames == 0)
+					{
+						Trace.WriteLine("SETTING");
+						flashbanged = false;
+						hasSet = true;
+						canFlash = true;
+					}
 				}
-				Trace.Write(alpha);
-				theBrush = gfx.CreateSolidBrush(255, 255, 255, alpha);
-
-            }
+					theBrush = gfx.CreateSolidBrush(255, 255, 255, alpha);
+			}
 
 
 			gfx.ClearScene(theBrush); // What an odd name
@@ -138,6 +145,14 @@ namespace TwitchFlashbang
 					disposedValue = true;
 				}
 			}
+
+		public void CSGOflash()
+        {
+			if (!flashbanged)
+			{
+				flashbanged = true;
+			}
+        }
 
 			public void Dispose()
 			{

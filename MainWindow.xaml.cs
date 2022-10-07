@@ -23,12 +23,19 @@ namespace TwitchFlashbang
     public partial class MainWindow : Window
     {
         string? provider;
+        Window behaviourLayer = new Window();
         
 
         public MainWindow()
         {
             InitializeComponent();
-        }    
+            behaviourLayer.WindowState = WindowState.Maximized;
+            behaviourLayer.WindowStyle = WindowStyle.None;
+            behaviourLayer.AllowsTransparency = true;
+            behaviourLayer.Topmost = true;
+            behaviourLayer.Background = null;
+            behaviourLayer.Closed += BehaviourLayer_Closed;
+        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -36,13 +43,20 @@ namespace TwitchFlashbang
             if (donoProviders.SelectedItem != null)
             { 
                 provider = donoProviders.SelectedItem.ToString();
-                gameOverlay.Run();
+                Task.Run(() => gameOverlay.Run());
+                behaviourLayer.Show();
+                Close();
             }
             else
             {
                 MessageBox.Show("Please select a donation handler.", "ERROR");
             }
-            gameOverlay.flashbanged = true;
+            gameOverlay.CSGOflash();
+        }
+
+        private void BehaviourLayer_Closed(object? sender, EventArgs e)
+        {
+
         }
     }
 }

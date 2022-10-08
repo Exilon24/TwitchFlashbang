@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {}
+    "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {
+    "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+        "projectUniqueName": "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
         "projectName": "TwitchFlashbang",
-        "projectPath": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+        "projectPath": "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
         "packagesPath": "C:\\Users\\Pasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\obj\\",
+        "outputPath": "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -32,8 +32,6 @@ namespace TwitchFlashbang
         // User settings
         public string APIToken;
 
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -54,6 +52,9 @@ namespace TwitchFlashbang
                 Task.Run(() => gameOverlay.Run(), token);
                 _ = RefreshQueueTextAsync();
                 ReadyButton.IsEnabled = false;
+                SocketToken.IsEnabled = false;
+                donoProviders.IsEnabled = false;
+                TwitchEvents.IsEnabled = false;
 
             }
             else

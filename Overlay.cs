@@ -27,7 +27,7 @@ namespace TwitchFlashbang
 		public int queue = 0;
 
 		bool hasSet = true;
-		int blindFrames = 300;
+		int blindFrames = 540;
 		int fadeFrames = 540;
 		int currentBlindFrames = 0;
 		int currentFadeFrames = 0;

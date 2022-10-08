@@ -1078,6 +1078,14 @@
             "fileVersion": "4.6.24705.1"
           }
         }
+      },
+      "WebSocketSharp-netstandard/1.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/websocket-sharp.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        }
       }
     }
   },
@@ -1620,6 +1628,13 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "WebSocketSharp-netstandard/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-knoinAv31vbdxXdypnzN2MPX5hyntVLWceq6OdWRXkr9zzqp/RWbxSuLFGbkW8De1061URgNAN43BUTlgMx1CA==",
+      "path": "websocketsharp-netstandard/1.0.1",
+      "hashPath": "websocketsharp-netstandard.1.0.1.nupkg.sha512"
     }
   }
 }

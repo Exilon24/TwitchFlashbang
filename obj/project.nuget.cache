@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IXvCgsxP9R0pnESKQRtzHwFj3C/kyeL7RO1S1/n4UZbbqtjm+mfjp0yMMLwaUOWs9zxgHff/zj/K4wDOE7EKPA==",
+  "dgSpecHash": "VYg+YtPQLFLFlEDtMWOAyXK49y/NooIXCKrLuF4sA1Ez4egatv17gnYoMe7jPzZIq5AQV67h9ZuTpa6dxR3s6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
   "expectedPackageFiles": [
@@ -80,7 +80,8 @@
     "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
     "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Pasha\\.nuget\\packages\\websocketsharp-netstandard\\1.0.1\\websocketsharp-netstandard.1.0.1.nupkg.sha512"
   ],
   "logs": []
 }

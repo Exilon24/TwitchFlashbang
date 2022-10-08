@@ -46,6 +46,10 @@
             "GameOverlay.Net": {
               "target": "Package",
               "version": "[4.3.1, )"
+            },
+            "WebSocketSharp-netstandard": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             }
           },
           "imports": [

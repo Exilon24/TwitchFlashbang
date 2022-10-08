@@ -1240,6 +1240,15 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "WebSocketSharp-netstandard/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/websocket-sharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/websocket-sharp.dll": {}
+        }
       }
     }
   },
@@ -4546,11 +4555,29 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "WebSocketSharp-netstandard/1.0.1": {
+      "sha512": "knoinAv31vbdxXdypnzN2MPX5hyntVLWceq6OdWRXkr9zzqp/RWbxSuLFGbkW8De1061URgNAN43BUTlgMx1CA==",
+      "type": "package",
+      "path": "websocketsharp-netstandard/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/websocket-sharp.dll",
+        "lib/net35/websocket-sharp.xml",
+        "lib/net45/websocket-sharp.dll",
+        "lib/net45/websocket-sharp.xml",
+        "lib/netstandard2.0/websocket-sharp.dll",
+        "lib/netstandard2.0/websocket-sharp.xml",
+        "websocketsharp-netstandard.1.0.1.nupkg.sha512",
+        "websocketsharp-netstandard.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "GameOverlay.Net >= 4.3.1"
+      "GameOverlay.Net >= 4.3.1",
+      "WebSocketSharp-netstandard >= 1.0.1"
     ]
   },
   "packageFolders": {
@@ -4560,11 +4587,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+      "projectUniqueName": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
       "projectName": "TwitchFlashbang",
-      "projectPath": "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+      "projectPath": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
       "packagesPath": "C:\\Users\\Pasha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\obj\\",
+      "outputPath": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4599,6 +4626,10 @@
           "GameOverlay.Net": {
             "target": "Package",
             "version": "[4.3.1, )"
+          },
+          "WebSocketSharp-netstandard": {
+            "target": "Package",
+            "version": "[1.0.1, )"
           }
         },
         "imports": [

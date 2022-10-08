@@ -24,11 +24,10 @@ namespace TwitchFlashbang
     public partial class MainWindow : Window
     {
         string? provider;
-        Window behaviourLayer = new Window();
         CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
         CancellationToken token;
         Overlay? gameOverlay;
-        public static TextBlock queueFlashText;
+        TextBlock queueFlashText;
 
         // User settings
         public string APIToken;
@@ -38,13 +37,8 @@ namespace TwitchFlashbang
         public MainWindow()
         {
             InitializeComponent();
-            behaviourLayer.WindowState = WindowState.Maximized;
-            behaviourLayer.WindowStyle = WindowStyle.None;
-            behaviourLayer.AllowsTransparency = true;
-            behaviourLayer.Topmost = true;
-            behaviourLayer.Background = null;
             queueFlashText = queuedFlashbangs;
-            behaviourLayer.Closed += BehaviourLayer_Closed;
+            Closed += BehaviourLayer_Closed;
 
             APIToken = SocketToken.Password;
 
@@ -58,7 +52,8 @@ namespace TwitchFlashbang
             { 
                 provider = donoProviders.SelectedItem.ToString();
                 Task.Run(() => gameOverlay.Run(), token);
-                behaviourLayer.Show();
+                _ = RefreshQueueTextAsync();
+                ReadyButton.IsEnabled = false;
 
             }
             else
@@ -79,6 +74,15 @@ namespace TwitchFlashbang
             if (gameOverlay != null)
             {
                 gameOverlay.CSGOflash();
+            }
+        }
+
+        async Task RefreshQueueTextAsync()
+        {
+            while (true)
+            {
+                queueFlashText.Text = "Queued flashbangs: " + gameOverlay.queue;
+                await Task.Delay(100);
             }
         }
     }

@@ -168,8 +168,6 @@ namespace TwitchFlashbang
             {
 				queue += 1;
             }
-
-			MainWindow.queueFlashText.Text = "Queued flashbangs: " + queue;
 		}
 
 		public void Dispose()
@@ -180,4 +178,3 @@ namespace TwitchFlashbang
 		#endregion
 	}
 }
-

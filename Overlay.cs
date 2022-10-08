@@ -20,7 +20,7 @@ namespace TwitchFlashbang
 		private readonly Dictionary<string, SolidBrush> _brushes;
 		private readonly Dictionary<string, Font> _fonts;
 
-		bool flashbanged = false;
+		public bool flashbanged = false;
 		public bool canFlash = true;
 		int alpha = 255;
 
@@ -32,12 +32,8 @@ namespace TwitchFlashbang
 		int currentBlindFrames = 0;
 		int currentFadeFrames = 0;
 
-		MediaPlayer flashSound;
-
 		public Overlay()
 		{
-			flashSound = new MediaPlayer();
-			flashSound.Open(new Uri(@"FlashBangSound.mp3", UriKind.RelativeOrAbsolute));
 			_brushes = new Dictionary<string, SolidBrush>();
 			_fonts = new Dictionary<string, Font>();
 
@@ -88,12 +84,13 @@ namespace TwitchFlashbang
 		{
 			var gfx = e.Graphics;
 			var theBrush = gfx.CreateSolidBrush(255, 255, 255, 0);
-			Trace.WriteLine(queue);
 			if (queue > 0 && !flashbanged)
-            {
+			{
 				flashbanged = true;
 				queue--;
-            }
+				_ = MainWindow.PlayFlashSoundAsync();
+				Trace.WriteLine("PlayedAudio");
+			}
 
 			if (flashbanged)
 			{
@@ -121,7 +118,6 @@ namespace TwitchFlashbang
 				{
 					if (alpha == 0 && currentBlindFrames == 0 && currentFadeFrames == 0)
 					{
-						Trace.WriteLine("SETTING");
 						flashbanged = false;
 						hasSet = true;
 					}
@@ -161,13 +157,13 @@ namespace TwitchFlashbang
 		{
 			if (!flashbanged)
 			{
-				flashSound.Play();
 				flashbanged = true;
+				_ = MainWindow.PlayFlashSoundAsync();
 			}
 			else
-            {
+			{
 				queue += 1;
-            }
+			}
 		}
 
 		public void Dispose()
@@ -178,3 +174,4 @@ namespace TwitchFlashbang
 		#endregion
 	}
 }
+

@@ -28,6 +28,7 @@ namespace TwitchFlashbang
         CancellationToken token;
         Overlay? gameOverlay;
         TextBlock queueFlashText;
+        static MediaPlayer flashSound;
 
         // User settings
         public string APIToken;
@@ -38,6 +39,9 @@ namespace TwitchFlashbang
             queueFlashText = queuedFlashbangs;
             Closed += BehaviourLayer_Closed;
 
+            flashSound = new MediaPlayer();
+            flashSound.Open(new Uri(@"FlashBangSound.mp3", UriKind.RelativeOrAbsolute));
+
             APIToken = SocketToken.Password;
 
             token = cancelTokenSource.Token;
@@ -47,7 +51,7 @@ namespace TwitchFlashbang
         {
             gameOverlay = new Overlay();
             if (donoProviders.SelectedItem != null)
-            { 
+            {
                 provider = donoProviders.SelectedItem.ToString();
                 Task.Run(() => gameOverlay.Run(), token);
                 _ = RefreshQueueTextAsync();
@@ -61,7 +65,7 @@ namespace TwitchFlashbang
             {
                 MessageBox.Show("Please select a donation handler.", "ERROR");
             }
-           
+
         }
 
         private void BehaviourLayer_Closed(object? sender, EventArgs e)
@@ -70,11 +74,21 @@ namespace TwitchFlashbang
             cancelTokenSource.Dispose();
         }
 
+        public static async Task PlayFlashSoundAsync()
+        {
+            flashSound.Position = TimeSpan.Zero;
+            flashSound.Play();
+
+        }
+
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
             if (gameOverlay != null)
             {
-                gameOverlay.CSGOflash();
+                this.Dispatcher.Invoke(() =>
+                {
+                    gameOverlay.CSGOflash();
+                });
             }
         }
 
@@ -83,8 +97,9 @@ namespace TwitchFlashbang
             while (true)
             {
                 queueFlashText.Text = "Queued flashbangs: " + gameOverlay.queue;
-                await Task.Delay(100);
+                await Task.Delay(1000);
             }
         }
     }
 }
+

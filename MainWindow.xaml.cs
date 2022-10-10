@@ -28,7 +28,6 @@ namespace TwitchFlashbang
         CancellationToken token;
         Overlay? gameOverlay;
         TextBlock queueFlashText;
-        static MediaPlayer flashSound;
 
         // User settings
         public string APIToken;
@@ -38,9 +37,6 @@ namespace TwitchFlashbang
             InitializeComponent();
             queueFlashText = queuedFlashbangs;
             Closed += BehaviourLayer_Closed;
-
-            flashSound = new MediaPlayer();
-            flashSound.Open(new Uri(@"FlashBangSound.mp3", UriKind.RelativeOrAbsolute));
 
             APIToken = SocketToken.Password;
 
@@ -74,20 +70,13 @@ namespace TwitchFlashbang
             cancelTokenSource.Dispose();
         }
 
-        public static async Task PlayFlashSoundAsync()
-        {
-            flashSound.Position = TimeSpan.Zero;
-            flashSound.Play();
-
-        }
-
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
             if (gameOverlay != null)
             {
                 this.Dispatcher.Invoke(() =>
                 {
-                    gameOverlay.CSGOflash();
+                    _ = gameOverlay.CSGOflash();
                 });
             }
         }

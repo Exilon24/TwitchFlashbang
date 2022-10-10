@@ -17,116 +17,45 @@ namespace TwitchFlashbang
 	{
 		private readonly GraphicsWindow _window;
 
-		private readonly Dictionary<string, SolidBrush> _brushes;
-		private readonly Dictionary<string, Font> _fonts;
-
-		public bool flashbanged = false;
 		public bool canFlash = true;
-		int alpha = 255;
+		int alpha = 0;
 
 		public int queue = 0;
 
-		bool hasSet = true;
-		int blindFrames = 540;
-		int fadeFrames = 540;
-		int currentBlindFrames = 0;
-		int currentFadeFrames = 0;
+		FlashbangBackend flashBack = new FlashbangBackend();
 
 		public Overlay()
 		{
-			_brushes = new Dictionary<string, SolidBrush>();
-			_fonts = new Dictionary<string, Font>();
-
 			// Should hopefully adapt to primary monitor resolution
-			_window = new GraphicsWindow(0, 0, (int)SystemParameters.FullPrimaryScreenWidth, (int)SystemParameters.FullPrimaryScreenHeight + 300, null) // +300 to cover that taskbar
+			_window = new GraphicsWindow(0, 0, (int)SystemParameters.FullPrimaryScreenWidth * 2, (int)SystemParameters.FullPrimaryScreenHeight + 300, null) // +300 to cover that taskbar
 			{
 				FPS = 60,
 				IsTopmost = true,
 				IsVisible = true
 			};
-
-			_window.DestroyGraphics += _window_DestroyGraphics;
 			_window.DrawGraphics += _window_DrawGraphics;
 			_window.SetupGraphics += _window_SetupGraphics;
 		}
 
 		private void _window_SetupGraphics(object sender, SetupGraphicsEventArgs e)
 		{
-			var gfx = e.Graphics;
-
-			if (e.RecreateResources)
-			{
-				foreach (var pair in _brushes) pair.Value.Dispose();
-			}
-
-			_brushes["black"] = gfx.CreateSolidBrush(0, 0, 0);
-			_brushes["white"] = gfx.CreateSolidBrush(255, 255, 255);
-			_brushes["red"] = gfx.CreateSolidBrush(255, 0, 0);
-			_brushes["green"] = gfx.CreateSolidBrush(0, 255, 0);
-			_brushes["blue"] = gfx.CreateSolidBrush(0, 0, 255);
-			_brushes["background"] = gfx.CreateSolidBrush(0x33, 0x36, 0x3F);
-			_brushes["grid"] = gfx.CreateSolidBrush(255, 255, 255, 0.2f);
-			_brushes["random"] = gfx.CreateSolidBrush(0, 0, 0);
 
 			if (e.RecreateResources) return;
-
-			_fonts["arial"] = gfx.CreateFont("Arial", 12);
-			_fonts["consolas"] = gfx.CreateFont("Consolas", 14);
-		}
-
-		private void _window_DestroyGraphics(object sender, DestroyGraphicsEventArgs e)
-		{
-			foreach (var pair in _brushes) pair.Value.Dispose();
-			foreach (var pair in _fonts) pair.Value.Dispose();
 		}
 
 		private void _window_DrawGraphics(object sender, DrawGraphicsEventArgs e)
 		{
 			var gfx = e.Graphics;
-			var theBrush = gfx.CreateSolidBrush(255, 255, 255, 0);
-			if (queue > 0 && !flashbanged)
+			if (queue > 0 && canFlash)
 			{
-				flashbanged = true;
 				queue--;
-				_ = MainWindow.PlayFlashSoundAsync();
-				Trace.WriteLine("PlayedAudio");
+				_ = this.CSGOflash();
 			}
 
-			if (flashbanged)
-			{
-				if (hasSet)
-				{
-					currentBlindFrames = blindFrames;
-					currentFadeFrames = fadeFrames;
-					hasSet = false;
-					alpha = 255;
-				}
+			if (alpha < 1) { canFlash = true; }
 
-				if (currentBlindFrames > 0)
-				{
-					currentBlindFrames = currentBlindFrames - 1;
-				}
-				else if (currentFadeFrames > 0)
-				{
-					currentFadeFrames = currentFadeFrames - 1;
-					if (alpha > 0)
-					{
-						alpha = alpha - 1;
-					}
-				}
-				else
-				{
-					if (alpha == 0 && currentBlindFrames == 0 && currentFadeFrames == 0)
-					{
-						flashbanged = false;
-						hasSet = true;
-					}
-				}
-				theBrush = gfx.CreateSolidBrush(255, 255, 255, alpha);
-			}
-
-
-			gfx.ClearScene(theBrush); // What an odd name
+            var theBrush = gfx.CreateSolidBrush(255, 255, 255, alpha);
+            gfx.ClearScene(theBrush); // What an odd name
 		}
 
 		public void Run()
@@ -153,13 +82,17 @@ namespace TwitchFlashbang
 			}
 		}
 
-		public void CSGOflash()
+		public async Task CSGOflash()
 		{
-			if (!flashbanged)
+			if (canFlash)
 			{
-				flashbanged = true;
-				_ = MainWindow.PlayFlashSoundAsync();
-			}
+				canFlash = false;
+                await foreach (int tweenAlpha in flashBack.FlashbangAlphaAsync(5000))
+                {
+					alpha = tweenAlpha;
+					Trace.WriteLine(alpha);
+                }
+            }
 			else
 			{
 				queue += 1;

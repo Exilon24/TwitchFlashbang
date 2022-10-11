@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0nPgo1lEQKStV/iE2x+2cbBZbkVHYEIp3Rm0UUtktIsVMBvDOZWVMAeegntWJZRhmVhWn6oFSzWaiWNBr55vmg==",
+  "dgSpecHash": "b0WwndG3yTbkH/x9SDVpcXTbGKIwUUOuYC6cVNjud80rCHtQ/IIhfHARvNnqJP5wW4p8vpk1r96A8FHI+6bJbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pasha\\source\\repos\\Backup\\TwitchFlashbang.csproj",
+  "projectFilePath": "C:\\Users\\Pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pasha\\.nuget\\packages\\gameoverlay.net\\4.3.1\\gameoverlay.net.4.3.1.nupkg.sha512",
     "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

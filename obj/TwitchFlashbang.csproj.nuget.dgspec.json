@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {}
+    "C:\\Users\\Pasha\\source\\repos\\Backup\\TwitchFlashbang.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {
+    "C:\\Users\\Pasha\\source\\repos\\Backup\\TwitchFlashbang.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+        "projectUniqueName": "C:\\Users\\Pasha\\source\\repos\\Backup\\TwitchFlashbang.csproj",
         "projectName": "TwitchFlashbang",
-        "projectPath": "C:\\Users\\pasha\\Source\\Repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
-        "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pasha\\Source\\Repos\\TwitchFlashbang\\obj\\",
+        "projectPath": "C:\\Users\\Pasha\\source\\repos\\Backup\\TwitchFlashbang.csproj",
+        "packagesPath": "C:\\Users\\Pasha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pasha\\source\\repos\\Backup\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -55,8 +58,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -68,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

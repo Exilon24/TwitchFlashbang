@@ -7,7 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 using GameOverlay.Drawing;
 using GameOverlay.Windows;
 
@@ -32,10 +33,19 @@ namespace TwitchFlashbang
 		int currentBlindFrames = 0;
 		int currentFadeFrames = 0;
 
+		public WaveOutEvent outputDevice;
+		AudioFileReader audioFile;
+
 		public Overlay()
 		{
 			_brushes = new Dictionary<string, SolidBrush>();
 			_fonts = new Dictionary<string, Font>();
+
+			outputDevice = new WaveOutEvent();
+            outputDevice.PlaybackStopped += OutputDevice_PlaybackStopped;
+
+			audioFile = new AudioFileReader(@"/FlashBangSound.mp3");
+			outputDevice.Init(audioFile);
 
 			// Should hopefully adapt to primary monitor resolution
 			_window = new GraphicsWindow(0, 0, (int)SystemParameters.FullPrimaryScreenWidth, (int)SystemParameters.FullPrimaryScreenHeight + 300, null) // +300 to cover that taskbar
@@ -50,7 +60,13 @@ namespace TwitchFlashbang
 			_window.SetupGraphics += _window_SetupGraphics;
 		}
 
-		private void _window_SetupGraphics(object sender, SetupGraphicsEventArgs e)
+        private void OutputDevice_PlaybackStopped(object? sender, StoppedEventArgs e)
+        {
+            audioFile.Position = 0;
+			outputDevice.Pause();
+        }
+
+        private void _window_SetupGraphics(object sender, SetupGraphicsEventArgs e)
 		{
 			var gfx = e.Graphics;
 
@@ -88,7 +104,6 @@ namespace TwitchFlashbang
 			{
 				flashbanged = true;
 				queue--;
-				_ = MainWindow.PlayFlashSoundAsync();
 				Trace.WriteLine("PlayedAudio");
 			}
 
@@ -157,8 +172,8 @@ namespace TwitchFlashbang
 		{
 			if (!flashbanged)
 			{
+				outputDevice.Play();
 				flashbanged = true;
-				_ = MainWindow.PlayFlashSoundAsync();
 			}
 			else
 			{

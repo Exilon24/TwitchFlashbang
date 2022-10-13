@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <PackageReference Include="GameOverlay.Net" Version="4.3.1" />
+    <PackageReference Include="NAudio" Version="2.1.0" />
     <PackageReference Include="WebSocketSharp-netstandard" Version="1.0.1" />
   </ItemGroup>
 

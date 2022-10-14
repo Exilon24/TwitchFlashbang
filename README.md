@@ -9,3 +9,6 @@ This app requires a streamlabs SocketAPI token (**NOT TO BE MISTAKEN AS THE `acc
 
 ![image](https://user-images.githubusercontent.com/80382462/194613157-9bde38f6-878a-4a94-9296-33ff6cac2958.png)
 (Of course, personal information has been censored)
+
+# Issues, Bug reports and suggestions
+If you find a bug with the app, have a suggestion or just have a general issue with the app, please create a new issue on the [issues section](https://github.com/Exilon24/TwitchFlashbang/issues) with the appropriate tags. They will be reviewed, answered or resolved if they can. Please also provide evidence or examples to any issue or problem you may be having as it makes it infinitely easier to find and fix the issue.

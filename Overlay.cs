@@ -43,6 +43,7 @@ namespace TwitchFlashbang
 
 			outputDevice = new WaveOutEvent();
             outputDevice.PlaybackStopped += OutputDevice_PlaybackStopped;
+			outputDevice.Volume = 1f;
 
 			audioFile = new AudioFileReader(@"C:\Users\Pasha\source\repos\TwitchFlashbang\FlashBangSound.mp3");
 			outputDevice.Init(audioFile);
@@ -130,14 +131,14 @@ namespace TwitchFlashbang
 						alpha = alpha - 1;
 					}
 				}
-				else
+
+				if (alpha < 50 && currentBlindFrames == 0)
 				{
-					if (alpha == 0 && currentBlindFrames == 0)
-					{
-						flashbanged = false;
-						hasSet = true;
-					}
+					flashbanged = false;
+					hasSet = true;
 				}
+
+
 				theBrush = gfx.CreateSolidBrush(255, 255, 255, alpha);
 			}
 

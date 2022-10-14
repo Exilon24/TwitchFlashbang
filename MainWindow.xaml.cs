@@ -26,7 +26,7 @@ namespace TwitchFlashbang
         string? provider;
         CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
         CancellationToken token;
-        Overlay? gameOverlay;
+        public static Overlay? gameOverlay;
         TextBlock queueFlashText;
 
         // User settings
@@ -35,6 +35,7 @@ namespace TwitchFlashbang
         public MainWindow()
         {
             InitializeComponent();
+            WebSocketAPIHandler.startConnection();
             queueFlashText = queuedFlashbangs;
             Closed += BehaviourLayer_Closed;
 

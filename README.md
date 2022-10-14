@@ -6,7 +6,7 @@ Made by me because I was bored and this sounded funny.
 > #### ⚠️ PHOTOSENSITIVE EPILEPSY WARNING! ⚠️
 > If you suffer from photosensitive epilepsy and are prone to seizures, You probably shouldn't use this app.
 > 
-> ***IF YOU ARE A STREAMER OR YOUTUBER THAT PLANS TO USE THIS FOR AN AUDIENCE, PLEASE PUT A WARNING SO PEOPLE KNOW WHAT HELL THEY'RE ABOUT TO EXPIRIENCE!***
+> ***IF YOU ARE A STREAMER OR YOUTUBER THAT PLANS TO USE THIS IN FRONT OF AN AUDIENCE, PLEASE PUT A WARNING SO PEOPLE KNOW WHAT HELL THEY'RE ABOUT TO EXPIRIENCE!***
 
 # Usage
 Let me finish for christ sake.

@@ -35,7 +35,7 @@ namespace TwitchFlashbang
         public MainWindow()
         {
             InitializeComponent();
-            WebSocketAPIHandler.startConnection();
+            SocketAPIHandler.startConnection();
             queueFlashText = queuedFlashbangs;
             Closed += BehaviourLayer_Closed;
 

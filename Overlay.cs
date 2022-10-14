@@ -63,7 +63,6 @@ namespace TwitchFlashbang
 
         private void OutputDevice_PlaybackStopped(object? sender, StoppedEventArgs e)
         {
-            audioFile.Position = 0;
 			outputDevice.Pause();
         }
 
@@ -134,6 +133,7 @@ namespace TwitchFlashbang
 
 				if (alpha < 50 && currentBlindFrames == 0)
 				{
+					audioFile.Position = 0;
 					flashbanged = false;
 					hasSet = true;
 				}

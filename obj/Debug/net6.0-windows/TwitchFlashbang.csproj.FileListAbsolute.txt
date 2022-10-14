@@ -54,7 +54,6 @@ C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\SharpDX.DXG
 C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\FlashBangSound.mp3
 C:\Users\Pasha\source\repos\TwitchFlashbang\obj\Debug\net6.0-windows\TwitchFlashbang.Properties.Resources.resources
 C:\Users\Pasha\source\repos\TwitchFlashbang\obj\Debug\net6.0-windows\TwitchFlashbang.csproj.GenerateResource.cache
-C:\Users\Pasha\Source\Repos\TwitchFlashbang\bin\Debug\net6.0-windows\websocket-sharp.dll
 C:\Users\Pasha\Source\Repos\TwitchFlashbang\obj\Debug\net6.0-windows\TwitchFlashbang_Content.g.cs
 C:\Users\Pasha\source\repos\Backup\bin\Debug\net6.0-windows\TwitchFlashbang.exe
 C:\Users\Pasha\source\repos\Backup\bin\Debug\net6.0-windows\FlashBangSound.mp3
@@ -94,3 +93,6 @@ C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\NAudio.Midi
 C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\NAudio.Wasapi.dll
 C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\NAudio.WinForms.dll
 C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\NAudio.WinMM.dll
+C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\SocketIOClient.dll
+C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\System.Reactive.dll
+C:\Users\Pasha\source\repos\TwitchFlashbang\bin\Debug\net6.0-windows\System.Text.Json.dll

@@ -44,7 +44,7 @@ namespace TwitchFlashbang
 			outputDevice = new WaveOutEvent();
             outputDevice.PlaybackStopped += OutputDevice_PlaybackStopped;
 
-			audioFile = new AudioFileReader(@"/FlashBangSound.mp3");
+			audioFile = new AudioFileReader(@"C:\Users\Pasha\source\repos\TwitchFlashbang\FlashBangSound.mp3");
 			outputDevice.Init(audioFile);
 
 			// Should hopefully adapt to primary monitor resolution
@@ -104,6 +104,7 @@ namespace TwitchFlashbang
 			{
 				flashbanged = true;
 				queue--;
+				outputDevice.Play();
 				Trace.WriteLine("PlayedAudio");
 			}
 
@@ -131,7 +132,7 @@ namespace TwitchFlashbang
 				}
 				else
 				{
-					if (alpha == 0 && currentBlindFrames == 0 && currentFadeFrames == 0)
+					if (alpha == 0 && currentBlindFrames == 0)
 					{
 						flashbanged = false;
 						hasSet = true;

@@ -9,6 +9,8 @@ Made by me because I was bored and this sounded funny.
 > 
 > ***IF YOU ARE A STREAMER OR YOUTUBER THAT PLANS TO USE THIS IN FRONT OF AN AUDIENCE, PLEASE PUT A WARNING SO PEOPLE KNOW WHAT HELL THEY'RE ABOUT TO EXPIRIENCE!***
 
+# Install
+This app can be downloaded on the releases page [here](https://github.com/Exilon24/TwitchFlashbang/releases)
 # Usage
 Upon opening the app (`TwitchFlashbang.exe`), you will be greeted by four different things:
 * The donation handler (**WIP**). This is where you select what API you will be using to trigger the events.

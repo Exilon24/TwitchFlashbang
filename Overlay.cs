@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
 using GameOverlay.Drawing;
 using GameOverlay.Windows;
 
 namespace TwitchFlashbang
 {
-	public class Overlay : IDisposable
+    public class Overlay : IDisposable
 	{
 		private readonly GraphicsWindow _window;
 
@@ -42,7 +36,6 @@ namespace TwitchFlashbang
 			_fonts = new Dictionary<string, Font>();
 
 			outputDevice = new WaveOutEvent();
-            outputDevice.PlaybackStopped += OutputDevice_PlaybackStopped;
 			outputDevice.Volume = 1f;
 
 			audioFile = new AudioFileReader(@"C:\Users\Pasha\source\repos\TwitchFlashbang\FlashBangSound.mp3");
@@ -60,11 +53,6 @@ namespace TwitchFlashbang
 			_window.DrawGraphics += _window_DrawGraphics;
 			_window.SetupGraphics += _window_SetupGraphics;
 		}
-
-        private void OutputDevice_PlaybackStopped(object? sender, StoppedEventArgs e)
-        {
-			outputDevice.Pause();
-        }
 
         private void _window_SetupGraphics(object sender, SetupGraphicsEventArgs e)
 		{
@@ -131,8 +119,9 @@ namespace TwitchFlashbang
 					}
 				}
 
-				if (alpha < 50 && currentBlindFrames == 0)
+				if (alpha < 100 && currentBlindFrames == 0)
 				{
+					outputDevice.Pause();
 					audioFile.Position = 0;
 					flashbanged = false;
 					hasSet = true;

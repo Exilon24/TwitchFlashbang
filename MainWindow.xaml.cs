@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 
 namespace TwitchFlashbang
@@ -39,16 +28,10 @@ namespace TwitchFlashbang
         public MainWindow()
         {
             InitializeComponent();
-            SocketAPIHandler.startConnection();
             Closed += BehaviourLayer_Closed;
 
             // UI assigns
             queueFlashText = queuedFlashbangs;
-            socketAPIToken = SocketToken.Password;
-            invokeOnDonate = onDonation.IsChecked;
-            invokeOnFollow = onFollow.IsChecked;
-            invokeOnSubscription = onSubscription.IsChecked;
-            socketConnectionStatus = socketStatus;
 
             token = cancelTokenSource.Token;
         }
@@ -56,7 +39,7 @@ namespace TwitchFlashbang
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             gameOverlay = new Overlay();
-            if (donoProviders.SelectedItem != null && socketAPIToken != null)
+            if (donoProviders.SelectedItem != null && SocketToken.Password != "")
             {
                 provider = donoProviders.SelectedItem.ToString();
                 Task.Run(() => gameOverlay.Run(), token);
@@ -65,6 +48,11 @@ namespace TwitchFlashbang
                 SocketToken.IsEnabled = false;
                 donoProviders.IsEnabled = false;
                 TwitchEvents.IsEnabled = false;
+                invokeOnDonate = onDonation.IsChecked;
+                invokeOnFollow = onFollow.IsChecked;
+                invokeOnSubscription = onSubscription.IsChecked;
+                socketAPIToken = SocketToken.Password;
+                SocketAPIHandler.startConnection();
 
             }
             else
@@ -92,7 +80,7 @@ namespace TwitchFlashbang
             }
         }
 
-        async Task RefreshQueueTextAsync()
+    async Task RefreshQueueTextAsync()
         {
             while (true)
             {

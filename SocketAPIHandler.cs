@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Threading;
 using SocketIOClient;
 
 namespace TwitchFlashbang
 {
     public class SocketAPIHandler
     {
+        public static SocketIO sio;
         public static async Task startConnection()
         {
+
             // Create the socket object.
-            var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6IjM5ODE5NTZGQTVGRDRBQTQ5NDY2MDE1QkUzNTM5MUE0MTRFN0I4RUYyMDRENDk5Mjk1NzFEOTY3NDVDMjkyNDJBRUZFMDYxMDVDQjRFQUQyNDQyRkMxRjJCMEE1QzE1N0VDOEUxODcyRThDNDhCM0QyMUY0RERBQjk2MjMxRDk3NEIzODcwMUE4MzIwODZERjIxQ0M2MkY5QjZFRjU0ODlDNUZGNTAxMDQ4NjQyQzFFMjMzOUVDQzdCNTE2MDIyREU4RkU0OTQ3NkVDNDBDMDIyMzVCMTQyNEY1NEVERDk1Njc2MTI0OTk0NkI2MkNBOUE1NkI3RkVENzMiLCJyZWFkX29ubHkiOnRydWUsInByZXZlbnRfbWFzdGVyIjp0cnVlLCJ0d2l0Y2hfaWQiOiI1ODc0MzY1OTUifQ.A2Bh_zcYf7MGXewwJ7ORpvz9eILtKUdoJyUpkLZS1_o";
-            var sio = new SocketIO($"https://sockets.streamlabs.com?token={token}", new SocketIOOptions()
+            var token = MainWindow.socketAPIToken;
+            sio = new SocketIO($"https://sockets.streamlabs.com?token={token}", new SocketIOOptions()
             {
                 Transport = SocketIOClient.Transport.TransportProtocol.WebSocket,
                 Query = new List<KeyValuePair<string, string>>
@@ -28,22 +26,61 @@ namespace TwitchFlashbang
 
             sio.OnConnected += async (s, e) =>
             {
-                Dispatcher.Invoke(() =>
-                {
-                    MainWindow.socketConnectionStatus.Text = "Status: Connected";
-                    MainWindow.socketConnectionStatus.Foreground = new SolidColorBrush(Color.FromRgb(0, 255, 0));
-                });
+                MessageBox.Show("Successfully connected to streamlabs.", "Success!", MessageBoxButton.OK, MessageBoxImage.Information);    
             };
+
+
 
             sio.On("event", data =>
             {
-                MainWindow.gameOverlay.CSGOflash();
+                JsonDocument eventData = data.GetValue<JsonDocument>();
+                JsonElement root = eventData.RootElement;
+                JsonElement type = root.GetProperty("type");
+                string rawType = type.ToString();
+                if (rawType == "donation" && (MainWindow.invokeOnDonate ?? false))
+                {
+                    MainWindow.gameOverlay.CSGOflash();
+                }
+                else if (rawType == "follow" && (MainWindow.invokeOnFollow ?? false))
+                {
+                    MainWindow.gameOverlay.CSGOflash();
+                }
+                else if ((rawType == "resub" || rawType == "subscription") && (MainWindow.invokeOnSubscription ?? false))
+                {
+                    MainWindow.gameOverlay.CSGOflash();
+                }
             });
 
             await sio.ConnectAsync();
-            Console.ReadKey(true);
-
-
         }
     }
+    public class Message
+    {
+        public int id { get; set; }
+        public string? name { get; set; }
+        public string? amount { get; set; }
+        public string? formatted_amount { get; set; }
+        public string? formattedAmount { get; set; }
+        public string? message { get; set; }
+        public string? currency { get; set; }
+        public object? emotes { get; set; }
+        public string? iconClassName { get; set; }
+        public To? to { get; set; }
+        public string? from { get; set; }
+        public object? from_user_id { get; set; }
+        public string? _id { get; set; }
+    }
+
+    public class Root
+    {
+        public string? type { get; set; }
+        public List<Message>? message { get; set; }
+        public string? event_id { get; set; }
+    }
+
+    public class To
+    {
+        public string? name { get; set; }
+    }
 }
+

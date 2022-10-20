@@ -9,8 +9,11 @@ Made by me because I was bored and this sounded funny.
 > 
 > ***IF YOU ARE A STREAMER OR YOUTUBER THAT PLANS TO USE THIS IN FRONT OF AN AUDIENCE, PLEASE PUT A WARNING SO PEOPLE KNOW WHAT HELL THEY'RE ABOUT TO EXPIRIENCE!***
 
-# Install
-This app can be downloaded on the releases page [here](https://github.com/Exilon24/TwitchFlashbang/releases)
+# Install, game settings and recording settings
+This app can be downloaded on the releases page [here](https://github.com/Exilon24/TwitchFlashbang/releases). I have yet to test recording and streaming the app so right now, you will have to figure it out yourself. To run this over games, the game will have to be set to borderless fullscreen as exclusive fullscreen does what its name suggests and ovveriding that is bannable by most games. To capture the flash on obs, add another game capture and add the flashbang `(null)` window to the window to capture:
+
+![image](https://user-images.githubusercontent.com/80382462/197054101-fa27d8b3-c936-4d47-818a-52f42086c9e5.png)
+
 # Usage
 Upon opening the app (`TwitchFlashbang.exe`), you will be greeted by four different things:
 * The donation handler (**WIP**). This is where you select what API you will be using to trigger the events.

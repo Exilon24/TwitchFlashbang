@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\pasha\source\repos\TwitchFlashbang\obj\Debug\net6.0-windows\
+C:\Users\Pasha\source\repos\TwitchFlashbang\obj\Debug\net6.0-windows\
 TwitchFlashbang
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\pasha\source\repos\TwitchFlashbang\App.xaml
-21327498623
+C:\Users\Pasha\source\repos\TwitchFlashbang\App.xaml
+11407045341
+1-1606302853
+8-1731123118
+215-327850069
+MainWindow.xaml;
 
-61078407474
-199-313746525
-MainWindow.xaml;overlay.xaml;
-
-True
+False
 

@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {}
+    "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {
+    "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+        "projectUniqueName": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
         "projectName": "TwitchFlashbang",
-        "projectPath": "C:\\Users\\pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
-        "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pasha\\source\\repos\\TwitchFlashbang\\obj\\",
+        "projectPath": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\TwitchFlashbang.csproj",
+        "packagesPath": "C:\\Users\\Pasha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pasha\\source\\repos\\TwitchFlashbang\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -40,9 +43,17 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
-            "PInvoke.User32": {
+            "GameOverlay.Net": {
               "target": "Package",
-              "version": "[0.7.124, )"
+              "version": "[4.3.1, )"
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "SocketIOClient": {
+              "target": "Package",
+              "version": "[3.0.6, )"
             }
           },
           "imports": [
@@ -51,8 +62,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

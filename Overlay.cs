@@ -5,6 +5,8 @@ using System.Windows;
 using NAudio.Wave;
 using GameOverlay.Drawing;
 using GameOverlay.Windows;
+using System.Reflection;
+using System.IO;
 
 namespace TwitchFlashbang
 {
@@ -38,7 +40,13 @@ namespace TwitchFlashbang
 			outputDevice = new WaveOutEvent();
 			outputDevice.Volume = 1f;
 
-			audioFile = new AudioFileReader(@"C:\Users\Pasha\source\repos\TwitchFlashbang\FlashBangSound.mp3");
+			// Current dir of the CSPROJ file. Use when debugging.
+			string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+			// Current dir of the excecutable. Use when building
+			string execDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+			Trace.WriteLine("CURRENT DDIDIDIDID" + projectDirectory);
+			audioFile = new AudioFileReader((projectDirectory + @"/FlashBangSound.mp3"));
 			outputDevice.Init(audioFile);
 
 			// Should hopefully adapt to primary monitor resolution

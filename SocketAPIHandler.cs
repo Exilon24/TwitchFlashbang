@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Threading;
 using SocketIOClient;
 
 namespace TwitchFlashbang
@@ -9,13 +14,36 @@ namespace TwitchFlashbang
     {
         public static async Task startConnection()
         {
-            var client = new SocketIO("https://sockets.streamlabs.com?token=$eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6IjYxRjExNEM3MTQ2RUIwOUJEQzg4QjM2M0M3OUFFOUMwQjlENUQ1ODdCMEE3RkM2RTFGQTgxQzdBMTM2RjlFRUQxREVFMUVDODlEOTg4QTdCNkFCNDc1NDRGOTI3NDMwRDM5RjQ4NjI0NDQyMTEyRUUwRTlEQkRCODgxNjFFOUU1QUVGQTcwNjcxQkNDQzBFMUFFOEM2ODUxNDU0QTA5QTMzRTU1QUI1NkJGQjM5MkYwNUFFRkQ3RTRBREMxODg2QURBMDY5MTkxQUYzRkFBOTQ5MkMzMEZFQjExQ0Q1REJCODEwNzcwQzk2QUYzODNFMUJGOTA4RjA3RkEiLCJyZWFkX29ubHkiOnRydWUsInByZXZlbnRfbWFzdGVyIjp0cnVlLCJ0d2l0Y2hfaWQiOiI1ODc0MzY1OTUifQ.jo55U9kPirljg1rWogbehWU6nqXXt2DroANeDab7OmQ");
-            client.On("event", response =>
+            // Create the socket object.
+            var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6IjM5ODE5NTZGQTVGRDRBQTQ5NDY2MDE1QkUzNTM5MUE0MTRFN0I4RUYyMDRENDk5Mjk1NzFEOTY3NDVDMjkyNDJBRUZFMDYxMDVDQjRFQUQyNDQyRkMxRjJCMEE1QzE1N0VDOEUxODcyRThDNDhCM0QyMUY0RERBQjk2MjMxRDk3NEIzODcwMUE4MzIwODZERjIxQ0M2MkY5QjZFRjU0ODlDNUZGNTAxMDQ4NjQyQzFFMjMzOUVDQzdCNTE2MDIyREU4RkU0OTQ3NkVDNDBDMDIyMzVCMTQyNEY1NEVERDk1Njc2MTI0OTk0NkI2MkNBOUE1NkI3RkVENzMiLCJyZWFkX29ubHkiOnRydWUsInByZXZlbnRfbWFzdGVyIjp0cnVlLCJ0d2l0Y2hfaWQiOiI1ODc0MzY1OTUifQ.A2Bh_zcYf7MGXewwJ7ORpvz9eILtKUdoJyUpkLZS1_o";
+            var sio = new SocketIO($"https://sockets.streamlabs.com?token={token}", new SocketIOOptions()
             {
-               if (MainWindow.gameOverlay != null) { MainWindow.gameOverlay.CSGOflash(); }
+                Transport = SocketIOClient.Transport.TransportProtocol.WebSocket,
+                Query = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("token", token )
+                },
+                EIO = 3
             });
 
-            await client.ConnectAsync();
+            sio.OnConnected += async (s, e) =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    MainWindow.socketConnectionStatus.Text = "Status: Connected";
+                    MainWindow.socketConnectionStatus.Foreground = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                });
+            };
+
+            sio.On("event", data =>
+            {
+                MainWindow.gameOverlay.CSGOflash();
+            });
+
+            await sio.ConnectAsync();
+            Console.ReadKey(true);
+
+
         }
     }
 }

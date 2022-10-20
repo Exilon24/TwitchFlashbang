@@ -27,20 +27,28 @@ namespace TwitchFlashbang
         CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
         CancellationToken token;
         public static Overlay? gameOverlay;
-        TextBlock queueFlashText;
 
-        // User settings
-        public string APIToken;
+        // UI SETTINGS
+        TextBlock queueFlashText;
+        public static string socketAPIToken;
+        public static TextBlock socketConnectionStatus;
+        public static bool? invokeOnSubscription;
+        public static bool? invokeOnFollow;
+        public static bool? invokeOnDonate;
 
         public MainWindow()
         {
             InitializeComponent();
             SocketAPIHandler.startConnection();
-            queueFlashText = queuedFlashbangs;
             Closed += BehaviourLayer_Closed;
 
-
-            APIToken = SocketToken.Password;
+            // UI assigns
+            queueFlashText = queuedFlashbangs;
+            socketAPIToken = SocketToken.Password;
+            invokeOnDonate = onDonation.IsChecked;
+            invokeOnFollow = onFollow.IsChecked;
+            invokeOnSubscription = onSubscription.IsChecked;
+            socketConnectionStatus = socketStatus;
 
             token = cancelTokenSource.Token;
         }
@@ -48,7 +56,7 @@ namespace TwitchFlashbang
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             gameOverlay = new Overlay();
-            if (donoProviders.SelectedItem != null)
+            if (donoProviders.SelectedItem != null && socketAPIToken != null)
             {
                 provider = donoProviders.SelectedItem.ToString();
                 Task.Run(() => gameOverlay.Run(), token);
@@ -61,7 +69,7 @@ namespace TwitchFlashbang
             }
             else
             {
-                MessageBox.Show("Please select a donation handler.", "ERROR");
+                MessageBox.Show("Please select a donation handler and enter your SocketAPI token.", "ERROR");
             }
 
         }

@@ -119,9 +119,8 @@ namespace TwitchFlashbang
 					}
 				}
 
-				if (alpha < 100 && currentBlindFrames == 0)
+				if (alpha < 50 && currentBlindFrames == 0)
 				{
-					outputDevice.Pause();
 					audioFile.Position = 0;
 					flashbanged = false;
 					hasSet = true;

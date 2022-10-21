@@ -80,7 +80,7 @@ namespace TwitchFlashbang
             }
         }
 
-    async Task RefreshQueueTextAsync()
+        async Task RefreshQueueTextAsync()
         {
             while (true)
             {

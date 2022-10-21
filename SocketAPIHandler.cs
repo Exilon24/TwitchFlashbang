@@ -40,27 +40,33 @@ namespace TwitchFlashbang
             {
                 JsonDocument eventData = data.GetValue<JsonDocument>();
                 var parsedData = ToJsonString(eventData);
-                Trace.WriteLine(parsedData);
-                if (parsedData "type" != "alertPlaying")
+                var OvverideType = eventData.RootElement.GetProperty("type");
+                string type = String.Empty;
+                int? donationAmount = 0;
+                Root myDeserializedClass = new Root();
+                if (OvverideType.ToString() != "alertPlaying" && OvverideType.ToString() != "streamlabels" && OvverideType.ToString() != "subscription-playing" && OvverideType.ToString() != "streamlabels.underlying")
                 {
-                    var myDeserializedClass = JsonSerializer.Deserialize<Root>(parsedData);
-                    string type = myDeserializedClass.type;
-                    int? donationAmount = myDeserializedClass.message[0].amount;
-                }
-                if (type == "donation" && (MainWindow.invokeOnDonate ?? false))
-                {
-                    if (donationAmount != null && donationAmount >= MainWindow.minimumDonationAmount)
+                    Trace.WriteLine(parsedData);
+                    myDeserializedClass = JsonSerializer.Deserialize<Root>(parsedData);
+                    donationAmount = myDeserializedClass.message[0].amount;
+                    type = myDeserializedClass.type;
+
+
+                    if (type == "donation" && (MainWindow.invokeOnDonate ?? false))
+                    {
+                        if (donationAmount != null && donationAmount >= MainWindow.minimumDonationAmount)
+                        {
+                            waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                        }
+                    }
+                    else if (type == "follow" && (MainWindow.invokeOnFollow ?? false))
                     {
                         waitForMessage((MainWindow.waitForMessageEndBool ?? false));
                     }
-                }
-                else if (type == "follow" && (MainWindow.invokeOnFollow ?? false))
-                {
-                    waitForMessage((MainWindow.waitForMessageEndBool ?? false));
-                }
-                else if ((type == "resub" || type == "subscription") && (MainWindow.invokeOnSubscription ?? false))
-                {
-                    waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                    else if ((type == "resub" || type == "subscription") && (MainWindow.invokeOnSubscription ?? false))
+                    {
+                        waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                    }
                 }
             });
 

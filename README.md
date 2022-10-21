@@ -72,4 +72,3 @@ If you find a bug with the app, have a suggestion or just have a general issue w
 > * The app locked at 60 FPS.
 >   - There might be an option to change this later but as of know, the flashbang effect is dependent on the framerate of the overlay. This is how the overlay works and I can't really do much about it **(Note: If the Win32 version is developed, this may not be a limitation)**. If you're streaming 
 or recording, 60 FPS should already be fine for your viewers as usually videos and streams aren't recorded at more than 60 FPS. If you're using a 60hz monitor, the flashbang effect may look a little choppy but otherwise, its still fine.
-> * The flashbang has an odd cutoff effect at the end.

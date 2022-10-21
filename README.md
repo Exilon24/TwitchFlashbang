@@ -14,6 +14,9 @@ This app can be downloaded on the releases page [here](https://github.com/Exilon
 
 ![image](https://user-images.githubusercontent.com/80382462/197054101-fa27d8b3-c936-4d47-818a-52f42086c9e5.png)
 
+> ### NOTE: IF THIS DOESN'T WORK, YOU WILL HAVE TO RESORT TO USING DISPLAY CAPTURE.
+> This is a limitation with the game overlay. This will not be a problem on the Win32 version if it is developed. 
+
 # Usage
 Upon opening the app (`TwitchFlashbang.exe`), you will be greeted by four different things:
 * The donation handler (**WIP**). This is where you select what API you will be using to trigger the events.

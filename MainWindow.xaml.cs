@@ -24,6 +24,8 @@ namespace TwitchFlashbang
         public static bool? invokeOnSubscription;
         public static bool? invokeOnFollow;
         public static bool? invokeOnDonate;
+        public static bool? waitForMessageEndBool;
+        public static int minimumDonationAmount;
 
         public MainWindow()
         {
@@ -48,10 +50,23 @@ namespace TwitchFlashbang
                 SocketToken.IsEnabled = false;
                 donoProviders.IsEnabled = false;
                 TwitchEvents.IsEnabled = false;
+                minDonationStackPanel.IsEnabled = false;
+                waitForMessageEnd.IsEnabled = false;
+
+
                 invokeOnDonate = onDonation.IsChecked;
                 invokeOnFollow = onFollow.IsChecked;
                 invokeOnSubscription = onSubscription.IsChecked;
                 socketAPIToken = SocketToken.Password;
+                waitForMessageEndBool = waitForMessageEnd.IsChecked;
+
+                if (minDonationAmount.Text == "")
+                {
+                    minDonationAmount.Text = "0";
+                }
+
+                Int32.Parse(minDonationAmount.Text);
+
                 SocketAPIHandler.startConnection();
 
             }

@@ -43,7 +43,7 @@ namespace TwitchFlashbang
 			// Current dir of the excecutable. Use when building
 			string execDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-			audioFile = new AudioFileReader((execDirectory + @"/FlashBangSound.mp3"));
+			audioFile = new AudioFileReader("FlashBangSound.mp3");
 			outputDevice.Init(audioFile);
 
 			// Should hopefully adapt to primary monitor resolution

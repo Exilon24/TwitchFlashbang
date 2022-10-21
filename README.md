@@ -2,6 +2,8 @@
 *Funny little app to torture streamers. Viewers donate, streamer go blind.*
 **(WINDOWS ONLY!)**
 
+![New Project](https://user-images.githubusercontent.com/80382462/197171306-2e924330-908e-4431-81da-a51b0ef804ae.png)
+
 Made by me because I was bored and this sounded funny.
 
 > #### ⚠️ PHOTOSENSITIVE EPILEPSY WARNING! ⚠️

@@ -40,12 +40,9 @@ namespace TwitchFlashbang
 			outputDevice = new WaveOutEvent();
 			outputDevice.Volume = 1f;
 
-			// Current dir of the CSPROJ file. Use when debugging.
-			string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 			// Current dir of the excecutable. Use when building
 			string execDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-			Trace.WriteLine("CURRENT DDIDIDIDID" + execDirectory);
 			audioFile = new AudioFileReader((execDirectory + @"/FlashBangSound.mp3"));
 			outputDevice.Init(audioFile);
 
@@ -127,7 +124,7 @@ namespace TwitchFlashbang
 					}
 				}
 
-				if (alpha < 50 && currentBlindFrames == 0)
+				if (alpha < 2 && currentBlindFrames == 0)
 				{
 					audioFile.Position = 0;
 					flashbanged = false;

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using SocketIOClient;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
-using SocketIOClient;
 
 namespace TwitchFlashbang
 {
@@ -26,7 +26,7 @@ namespace TwitchFlashbang
 
             sio.OnConnected += async (s, e) =>
             {
-                MessageBox.Show("Successfully connected to streamlabs.", "Success!", MessageBoxButton.OK, MessageBoxImage.Information);    
+                MessageBox.Show("Successfully connected to streamlabs.", "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
             };
 
 
@@ -53,34 +53,6 @@ namespace TwitchFlashbang
 
             await sio.ConnectAsync();
         }
-    }
-    public class Message
-    {
-        public int id { get; set; }
-        public string? name { get; set; }
-        public string? amount { get; set; }
-        public string? formatted_amount { get; set; }
-        public string? formattedAmount { get; set; }
-        public string? message { get; set; }
-        public string? currency { get; set; }
-        public object? emotes { get; set; }
-        public string? iconClassName { get; set; }
-        public To? to { get; set; }
-        public string? from { get; set; }
-        public object? from_user_id { get; set; }
-        public string? _id { get; set; }
-    }
-
-    public class Root
-    {
-        public string? type { get; set; }
-        public List<Message>? message { get; set; }
-        public string? event_id { get; set; }
-    }
-
-    public class To
-    {
-        public string? name { get; set; }
     }
 }
 

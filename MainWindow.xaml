@@ -27,9 +27,9 @@
         <TextBlock x:Name="queuedFlashbangs" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,40">Queued flashbangs: 0</TextBlock>
         <Button x:Name="ReadyButton" Grid.Column="2" Grid.Row="3" Width="120" VerticalAlignment="Bottom" Margin="0, 30" Height="40" FontSize="20" Click="Button_Click_1" Content="Ready"/>
         <Button x:Name="TestButton" Content="Test flash" Grid.Column="2" Grid.Row="3" Height="40" Width="120" FontSize="20" Margin="0, 50, 0, 0" Click="TestButton_Click"/>
-        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Top" Margin="0,170,0,0" TextWrapping="Wrap" TextAlignment="Center">Enter your streamlabs SocketAPI token. Dont worry its censored.</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Top" Margin="0,150,0,0" TextWrapping="Wrap" TextAlignment="Center">Enter your streamlabs SocketAPI token. Dont worry its censored.</TextBlock>
         <PasswordBox x:Name="SocketToken" Background="DarkGray" Width="200" PasswordChar="*" Grid.Row="3" Grid.Column="0" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
-        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="30" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Settings:</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="30" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Settings:</TextBlock>
         <TextBlock Margin="20, 0, 0, 0" Grid.Row="2" Grid.Column="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom">Select events:</TextBlock>
         <StackPanel x:Name="TwitchEvents" Margin="20, 15, 0, 0" Grid.Row="3" Grid.Column="1" Height="150" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center">
             <CheckBox x:Name="onDonation" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,5">Donations</CheckBox>

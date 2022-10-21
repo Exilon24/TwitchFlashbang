@@ -65,7 +65,7 @@ namespace TwitchFlashbang
                     minDonationAmount.Text = "0";
                 }
 
-                Int32.Parse(minDonationAmount.Text);
+                minimumDonationAmount = Int32.Parse(minDonationAmount.Text);
 
                 SocketAPIHandler.startConnection();
 

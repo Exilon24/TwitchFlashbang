@@ -1,8 +1,0 @@
-C:\Users\Pasha\Desktop\TwitchFlashbang.pdb
-C:\Users\Pasha\Desktop\FlashBangSound.mp3
-C:\Users\Pasha\Desktop\D3DCompiler_47_cor3.dll
-C:\Users\Pasha\Desktop\PenImc_cor3.dll
-C:\Users\Pasha\Desktop\PresentationNative_cor3.dll
-C:\Users\Pasha\Desktop\vcruntime140_cor3.dll
-C:\Users\Pasha\Desktop\wpfgfx_cor3.dll
-C:\Users\Pasha\Desktop\TwitchFlashbang.exe

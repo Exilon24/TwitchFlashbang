@@ -12,17 +12,17 @@ Made by me because I was bored and this sounded funny.
 > ***IF YOU ARE A STREAMER OR YOUTUBER THAT PLANS TO USE THIS IN FRONT OF AN AUDIENCE, PLEASE PUT A WARNING SO PEOPLE KNOW WHAT HELL THEY'RE ABOUT TO EXPIRIENCE!***
 
 # Install, game settings and recording settings
-This app can be downloaded on the releases page [here](https://github.com/Exilon24/TwitchFlashbang/releases). ~~I have yet to test recording and streaming the app so right now, you will have to figure it out yourself~~. To run this over games, the game will have to be set to borderless fullscreen as exclusive fullscreen does what its name suggests and ovveriding that is detectable ( and even bannable) by most games. There is no exception to this rule :(
+This app can be downloaded on the releases page [here](https://github.com/Exilon24/TwitchFlashbang/releases). ~~I have yet to test recording and streaming the app so right now, you will have to figure it out yourself~~. To run this over games, the game will **have** to be set to borderless fullscreen as exclusive fullscreen does what its name suggests and overriding that is detectable (**and even bannable**) by most games. There is no exception to this rule :(
 
 ## Capturing on OBS
 
-**To get started, make sure the flashbang overlay is active! Learn to do that [here](https://github.com/Exilon24/TwitchFlashbang/edit/master/README.md#usage)!
+**To get started, make sure the flashbang overlay is active! Learn to do that [here](https://github.com/Exilon24/TwitchFlashbang/edit/master/README.md#usage)!**
 
-To capture the flash on obs, add another `window capture` and add the flashbang `(null)` window to the window to `winow capture` and set the capture method to `BitBit (Windows 7 and up)`:
+To capture the flash on obs, add another `window capture` and add the flashbang `(null)` window to `winow capture` and set the capture method to `BitBlt (Windows 7 and up)`:
 
 ![image](https://user-images.githubusercontent.com/80382462/197275283-f734ca89-b15f-4af8-8e61-c2bfb67067c4.png)
 
-If you did it correctly, your screen on OBS should go completely black... Don't worry though! I have a fix for this! Right click window capture, and select `filters`:
+If you did it correctly, your screen on OBS should go completely black... Don't worry though! I have a fix for this! Right click window capture you just made, and select `filters`:
 
 ![image](https://user-images.githubusercontent.com/80382462/197275502-5b588f7c-02a4-4cbf-b370-c18aaafbe320.png)
 
@@ -30,29 +30,26 @@ That should open up this window:
 
 ![image](https://user-images.githubusercontent.com/80382462/197275607-5e02c38f-3413-457e-ad84-f75da27397ff.png)
 
-Now all you do is click the `+` icon at the bottom left, add a `luma key` and set the `Luma Max` and `Luma Min Smooth` to `1.0`. **Set everything else to `0.0`**. If done right, your window should look like mine: 
+Now all you do is click the `+` icon at the bottom left, add a `luma key` filter and set the `Luma Max` and `Luma Min Smooth` options to `1.0`. **Set everything else to `0.0`**. If done right, your `luma key` window should look like mine: 
 
 ![image](https://user-images.githubusercontent.com/80382462/197275831-ec1a4db8-bbed-427f-b485-e8ca9e13eeea.png)
 
-And voila! The overlay is now invisible untill the flashbang is triggered! Now it should overlay without you needing to use display capture!
+And voila! The overlay is now invisible untill the flashbang is triggered! Now it should overlay any game properly without you needing to use display capture!
 
-> ### ❗NOTE: MAKE SURE TO PUT THE OVERLAY WINDOW CAPTURE SOURCE ABOVE EVERYTHING. IF YOU WANT YOUR CHAT AND SUBSCRIPTION MESSAGES TO STILL BE VISIBLE, PUT THEM ABOVE LIKE SO:
+> ### ❗NOTE: MAKE SURE TO PUT THE OVERLAY WINDOW CAPTURE SOURCE ABOVE EVERYTHING. IF YOU WANT YOUR CHAT AND SUBSCRIPTION MESSAGES TO STILL BE VISIBLE THROUGH THE FLASH, PUT THEM ABOVE LIKE SO:
 
 ![image](https://user-images.githubusercontent.com/80382462/197276247-06709a3f-6a68-43d3-95ab-fa1d161012d5.png)
 
-> ### NOTE: IF THIS DOESN'T WORK, YOU WILL HAVE TO RESORT TO USING DISPLAY CAPTURE.
-> This is a limitation with the game overlay. This will not be a problem on the Win32 version if it is developed. 
-
 # Usage
 Upon opening the app (`TwitchFlashbang.exe`), you will be greeted by four different things:
-* The donation handler (**WIP**). This is where you select what API you will be using to trigger the events.
+* The donation handler (**WIP**). This is where you select what API you will be using to trigger the events in the app.
   - As of now, streamlabs is the only option.
-* The SocketAPI token box. This is where you will put your [SocketAPI token](https://streamlabs.com/dashboard/settings/api-settings) (You must be logged into streamlabs to access your [SocketAPI token](https://streamlabs.com/dashboard/settings/api-settings)). It is censored so no one can see your token being entered.
+* The SocketAPI token box. This is where you will put your [SocketAPI token](https://streamlabs.com/dashboard/settings/api-settings) (You must be logged into streamlabs to access your [SocketAPI token](https://streamlabs.com/dashboard/settings/api-settings)). The text box is censored so no one can see your token being entered incase you are setting this up on stream.
 * The settings. This is where you select what events you want to trigger the flashbang.
 * The `Ready` , `Test flash` and the flashbang queue.
-  - The `Ready` button will enable the application and enable the overlay.
-  - The `Test flash` button is mainly used for debugging and checking how well the flashbang effect works on your machine. If you are expiriencing issues, please make an [issue](https://github.com/Exilon24/TwitchFlashbang/tree/v0.1.0#issues-bug-reports-and-suggestions).
-  - Finally, the app has a flashbang queueing system. Half as to not destroy the machine that the app is running on and half because its way easier to program as a bug failsafe. If an event is triggered whilst the flashbang is active, the queue will increase.
+  - The `Ready` button will enable the application and enable the overlay. **This means the flashbang is now active!**
+  - The `Test flash` button is mainly used for debugging and checking how well the flashbang effect works on your machine. If you are expiriencing issues with the flashbang effect, please make an [issue](https://github.com/Exilon24/TwitchFlashbang/tree/v0.1.0#issues-bug-reports-and-suggestions) **as this app hasn't been tested with screen resolutions over 1920 x 1080**.
+  - Finally, the app has a flashbang queueing system. This exists half as to not absouloutely violate the machine that the app is running on and half because its way easier to program as a bug failsafe. If an event is triggered whilst the flashbang is active, the queue will increase. **If the queue is not zero, you will get flashbanged, one after the other untill the queue is reduced to zero.**
 ![image](https://user-images.githubusercontent.com/80382462/197049811-6b5c74ca-8466-425d-903a-e0c398641af6.png)
 
 ## Connecting your account

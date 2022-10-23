@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitchFlashbang"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Twitch Flashbang" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -18,7 +18,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="LightGray" Grid.Column="0" Grid.RowSpan="4"/>
+        <Rectangle Fill="DarkGray"  Grid.Column="0" Grid.RowSpan="4"/>
         <TextBlock FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="0">Twitch flashbang</TextBlock>
         <TextBlock HorizontalAlignment="Center" FontSize="20" Grid.Column="0" TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap"><Run Text="Please select a donation handler."/></TextBlock>
         <ComboBox x:Name="donoProviders" Background="DarkGray" Width="200" Height="40" FontSize="20" HorizontalContentAlignment="Center" Grid.Column="0" Grid.Row="2">

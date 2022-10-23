@@ -12,9 +12,12 @@ Made by me because I was bored and this sounded funny.
 > ***IF YOU ARE A STREAMER OR YOUTUBER THAT PLANS TO USE THIS IN FRONT OF AN AUDIENCE, PLEASE PUT A WARNING SO PEOPLE KNOW WHAT HELL THEY'RE ABOUT TO EXPIRIENCE!***
 
 # Install, game settings and recording settings
-This app can be downloaded on the releases page [here](https://github.com/Exilon24/TwitchFlashbang/releases). I have yet to test recording and streaming the app so right now, you will have to figure it out yourself. To run this over games, the game will have to be set to borderless fullscreen as exclusive fullscreen does what its name suggests and ovveriding that is bannable by most games. 
+This app can be downloaded on the releases page [here](https://github.com/Exilon24/TwitchFlashbang/releases). ~~I have yet to test recording and streaming the app so right now, you will have to figure it out yourself~~. To run this over games, the game will have to be set to borderless fullscreen as exclusive fullscreen does what its name suggests and ovveriding that is detectable ( and even bannable) by most games. There is no exception to this rule :(
 
 ## Capturing on OBS
+
+**To get started, make sure the flashbang overlay is active! Learn to do that [here](https://github.com/Exilon24/TwitchFlashbang/edit/master/README.md#usage)!
+
 To capture the flash on obs, add another `window capture` and add the flashbang `(null)` window to the window to `winow capture` and set the capture method to `BitBit (Windows 7 and up)`:
 
 ![image](https://user-images.githubusercontent.com/80382462/197275283-f734ca89-b15f-4af8-8e61-c2bfb67067c4.png)

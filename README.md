@@ -85,6 +85,8 @@ This app requires a streamlabs `SocketAPI token` (**NOT TO BE MISTAKEN AS THE `a
 ![image](https://user-images.githubusercontent.com/80382462/197052277-4ca52449-12d3-4af8-aa32-080b518d8a6b.png)
 _(Of course, personal information has been censored)_
 
+> ### NOTE: YOUR ANTIVIRUS MAY PREVENT THE APP FROM OPENING. I'M WORKING ON THIS RIGHT NOW BUT IN THE MEANTIME, YOU WILL HAVE TO WHITELIST THIS APP OR TURN ON YOUR ANTIVIRUS.
+
 # Issues, Bug reports and suggestions
 If you find a bug with the app, have a suggestion or just have a general issue with the app, please create a new issue on the [issues section](https://github.com/Exilon24/TwitchFlashbang/issues) with the appropriate tags. They will be reviewed, answered or resolved if they can. Please also provide evidence or examples to any issue or problem you may be having as it makes it infinitely easier to find and fix the issue.
 

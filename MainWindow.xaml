@@ -34,8 +34,8 @@
                 </SolidColorBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Image Source="/Icon.ico" Grid.Column="0" Grid.Row="0" Height="50" Margin="15, 0, 0, 0" HorizontalAlignment="Left"></Image>
-        <TextBlock FontSize="20" HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" Margin="0, 0, 20, 0" Grid.Column="0">Twitch flashbang</TextBlock>
+        <Image Source="/Icon.ico" Grid.Column="0" Grid.Row="0" Height="40" Margin="15, 0, 0, 0" HorizontalAlignment="Left"></Image>
+        <TextBlock FontSize="20" HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" Margin="0, 0, 30, 0" Grid.Column="0">Twitch flashbang</TextBlock>
         <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20" Grid.Column="0" TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap"><Run Text="Please select a donation handler."/></TextBlock>
         <ComboBox x:Name="donoProviders" Background="DarkGray" Width="200" Height="40" FontSize="20" HorizontalContentAlignment="Center" Grid.Column="0" Grid.Row="2">
             <ComboBoxItem Content="Streamlabs"/>

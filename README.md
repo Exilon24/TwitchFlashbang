@@ -16,7 +16,7 @@ This app can be downloaded on the releases page [here](https://github.com/Exilon
 
 ## Capturing on OBS
 
-**To get started, make sure the flashbang overlay is active! Learn to do that [here](https://github.com/Exilon24/TwitchFlashbang/edit/master/README.md#usage)!**
+**To get started, make sure the flashbang overlay is active! Learn to do that [here](https://github.com/Exilon24/TwitchFlashbang/master/README.md#usage)!**
 
 To capture the flash on obs, add another `window capture` and add the flashbang `(null)` window to `winow capture` and set the capture method to `BitBlt (Windows 7 and up)`:
 

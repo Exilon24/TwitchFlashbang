@@ -46,7 +46,7 @@ namespace TwitchFlashbang
                 Root myDeserializedClass = new Root();
 
                 // Dear god
-                if (OvverideType.ToString() != "alertPlaying" && OvverideType.ToString() != "streamlabels" && OvverideType.ToString() != "subscription-playing" && OvverideType.ToString() != "streamlabels.underlying" && OvverideType.ToString() != "host" && OvverideType.ToString() != "bits" && OvverideType.ToString() != "prime_sub_gift")
+                if (OvverideType.ToString() == "donation" || OvverideType.ToString() == "follow" || OvverideType.ToString() == "resub" || OvverideType.ToString() == "subscription")
                 {
                     Trace.WriteLine(parsedData);
                     myDeserializedClass = JsonSerializer.Deserialize<Root>(parsedData);

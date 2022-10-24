@@ -4,7 +4,7 @@
 
 ![New Project](https://user-images.githubusercontent.com/80382462/197171306-2e924330-908e-4431-81da-a51b0ef804ae.png)
 
-Made by me because I was bored and this sounded funny.
+Made by me because I was bored and this sounded funny. My first REAL project :)
 
 > #### ⚠️ PHOTOSENSITIVE EPILEPSY WARNING! ⚠️
 > If you suffer from photosensitive epilepsy and are prone to seizures, You probably shouldn't use this app.

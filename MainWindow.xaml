@@ -34,7 +34,8 @@
                 </SolidColorBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock FontSize="20" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="0">Twitch flashbang</TextBlock>
+        <Image Source="/Icon.ico" Grid.Column="0" Grid.Row="0" Height="50" Margin="15, 0, 0, 0" HorizontalAlignment="Left"></Image>
+        <TextBlock FontSize="20" HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" Margin="0, 0, 20, 0" Grid.Column="0">Twitch flashbang</TextBlock>
         <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20" Grid.Column="0" TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap"><Run Text="Please select a donation handler."/></TextBlock>
         <ComboBox x:Name="donoProviders" Background="DarkGray" Width="200" Height="40" FontSize="20" HorizontalContentAlignment="Center" Grid.Column="0" Grid.Row="2">
             <ComboBoxItem Content="Streamlabs"/>
@@ -69,7 +70,7 @@
         </StackPanel>
         <CheckBox x:Name="waitForMessageEnd" Foreground="White" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15, 50, 0, 0" FontSize="15"  >Wait for message end</CheckBox>
         <StackPanel x:Name="minDonationStackPanel" Margin="0, 100, 15, 0" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <TextBlock FontSize="13" Width="150" Foreground="White" TextAlignment="Center" TextWrapping="Wrap">Minimum donation amount <Bold>(AMOUNT IN ANY CURRENCY! THIS WILL BE CHANGED SOON!)</Bold>:</TextBlock>
+            <TextBlock FontSize="13" Width="150" Foreground="White" TextAlignment="Center" TextWrapping="Wrap">Minimum donation amount <LineBreak/><Bold>(AMOUNT IN ANY CURRENCY)</Bold>:</TextBlock>
             <TextBox x:Name="minDonationAmount" Width="40" MaxLength="3"></TextBox>
         </StackPanel>
     </Grid>

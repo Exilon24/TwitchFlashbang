@@ -100,13 +100,8 @@ namespace TwitchFlashbang
 			var theBrush = gfx.CreateSolidBrush(255, 255, 255, 0);
 			if (queue > 0 && !flashbanged)
 			{
-				flashbanged = true;
 				queue--;
-				outputDevice.Play();
-				if (MainWindow.warnOnFlash ?? false)
-				{
-					warnOutputDevice.Play();
-				}
+				CSGOflash();
 			}
 
 			if (flashbanged)

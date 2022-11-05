@@ -7,6 +7,7 @@ using GameOverlay.Drawing;
 using GameOverlay.Windows;
 using System.Reflection;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace TwitchFlashbang
 {
@@ -30,7 +31,9 @@ namespace TwitchFlashbang
 		int currentFadeFrames = 0;
 
 		public WaveOutEvent outputDevice;
+		public WaveOutEvent warnOutputDevice;
 		AudioFileReader audioFile;
+		AudioFileReader warnAudioFile;
 
 		public Overlay()
 		{
@@ -38,13 +41,15 @@ namespace TwitchFlashbang
 			_fonts = new Dictionary<string, Font>();
 
 			outputDevice = new WaveOutEvent();
+			warnOutputDevice = new WaveOutEvent();
 			outputDevice.Volume = 1f;
-
-			// Current dir of the excecutable. Use when building
-			string execDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+			warnOutputDevice.Volume = 1f;
 
 			audioFile = new AudioFileReader("FlashBangSound.mp3");
+			warnAudioFile = new AudioFileReader("FlashBangWarnSound.mp3");
+
 			outputDevice.Init(audioFile);
+			warnOutputDevice.Init(warnAudioFile);
 
 			// Should hopefully adapt to primary monitor resolution
 			_window = new GraphicsWindow(0, 0, (int)SystemParameters.FullPrimaryScreenWidth, (int)SystemParameters.FullPrimaryScreenHeight + 300, null) // +300 to cover that taskbar
@@ -98,7 +103,10 @@ namespace TwitchFlashbang
 				flashbanged = true;
 				queue--;
 				outputDevice.Play();
-				Trace.WriteLine("PlayedAudio");
+				if (MainWindow.warnOnFlash ?? false)
+				{
+					warnOutputDevice.Play();
+				}
 			}
 
 			if (flashbanged)
@@ -127,6 +135,7 @@ namespace TwitchFlashbang
 				if (alpha < 2 && currentBlindFrames == 0)
 				{
 					audioFile.Position = 0;
+					warnAudioFile.Position = 0;
 					flashbanged = false;
 					hasSet = true;
 				}
@@ -163,10 +172,15 @@ namespace TwitchFlashbang
 			}
 		}
 
-		public void CSGOflash()
+		public async Task CSGOflash()
 		{
 			if (!flashbanged)
 			{
+				if ((MainWindow.warnOnFlash ?? false))
+				{
+					warnOutputDevice.Play();
+					await Task.Delay(1100);
+				}
 				outputDevice.Play();
 				flashbanged = true;
 			}

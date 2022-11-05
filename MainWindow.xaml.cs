@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,8 @@ namespace TwitchFlashbang
         public static bool? invokeOnDonate;
         public static bool? waitForMessageEndBool;
         public static int minimumDonationAmount;
+        public static string setTriggerCommand;
+        public static bool? warnOnFlash;
 
         public MainWindow()
         {
@@ -53,19 +56,26 @@ namespace TwitchFlashbang
                 minDonationStackPanel.IsEnabled = false;
                 waitForMessageEnd.IsEnabled = false;
 
-
+                warnOnFlash = WarnMe.IsChecked;
                 invokeOnDonate = onDonation.IsChecked;
                 invokeOnFollow = onFollow.IsChecked;
                 invokeOnSubscription = onSubscription.IsChecked;
                 socketAPIToken = SocketToken.Password;
                 waitForMessageEndBool = waitForMessageEnd.IsChecked;
 
+                if (triggerCommand.Text == "")
+                {
+                    triggerCommand.Text = "None";
+                }
                 if (minDonationAmount.Text == "")
                 {
                     minDonationAmount.Text = "0";
                 }
 
+                setTriggerCommand = triggerCommand.Text;
                 minimumDonationAmount = Int32.Parse(minDonationAmount.Text);
+
+                Trace.WriteLine(setTriggerCommand);
 
                 SocketAPIHandler.startConnection();
 

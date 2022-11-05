@@ -53,21 +53,45 @@ namespace TwitchFlashbang
                     donationAmount = myDeserializedClass.message[0].amount;
                     type = myDeserializedClass.type;
 
-
-                    if (type == "donation" && (MainWindow.invokeOnDonate ?? false))
+                    if (MainWindow.setTriggerCommand != "None")
                     {
-                        if (donationAmount != null && donationAmount >= MainWindow.minimumDonationAmount)
+                        Trace.WriteLine("Yes message");
+                        if (myDeserializedClass.message[0].message.Contains(MainWindow.setTriggerCommand))
+                        {
+                            if (type == "donation" && (MainWindow.invokeOnDonate ?? false))
+                            {
+                                if (donationAmount != null && donationAmount >= MainWindow.minimumDonationAmount)
+                                {
+                                    waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                                }
+                            }
+                            else if (type == "follow" && (MainWindow.invokeOnFollow ?? false))
+                            {
+                                waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                            }
+                            else if ((type == "resub" || type == "subscription") && (MainWindow.invokeOnSubscription ?? false))
+                            {
+                                waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (type == "donation" && (MainWindow.invokeOnDonate ?? false))
+                        {
+                            if (donationAmount != null && donationAmount >= MainWindow.minimumDonationAmount)
+                            {
+                                waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                            }
+                        }
+                        else if (type == "follow" && (MainWindow.invokeOnFollow ?? false))
                         {
                             waitForMessage((MainWindow.waitForMessageEndBool ?? false));
                         }
-                    }
-                    else if (type == "follow" && (MainWindow.invokeOnFollow ?? false))
-                    {
-                        waitForMessage((MainWindow.waitForMessageEndBool ?? false));
-                    }
-                    else if ((type == "resub" || type == "subscription") && (MainWindow.invokeOnSubscription ?? false))
-                    {
-                        waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                        else if ((type == "resub" || type == "subscription") && (MainWindow.invokeOnSubscription ?? false))
+                        {
+                            waitForMessage((MainWindow.waitForMessageEndBool ?? false));
+                        }
                     }
                 }
             });
@@ -76,6 +100,7 @@ namespace TwitchFlashbang
 
             async Task waitForMessage(bool shouldWait)
             {
+                Trace.WriteLine("Waiting for message");
                 if (shouldWait)
                 {
                     await Task.Delay(7000);
@@ -83,6 +108,7 @@ namespace TwitchFlashbang
                 }
                 else
                 {
+                    Trace.WriteLine("Flashbang");
                     MainWindow.gameOverlay.CSGOflash();
                 }
 

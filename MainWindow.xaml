@@ -5,78 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitchFlashbang"
         mc:Ignorable="d"
-        Title="Twitch Flashbang" Height="450" Width="800" ResizeMode="NoResize">
-    <Window.Background>
-        <SolidColorBrush>
-            <SolidColorBrush.Color>
-                <Color A="255" R="57" G="46" B="165"/>
-            </SolidColorBrush.Color>
-        </SolidColorBrush>
-    </Window.Background>
+        Title="Twitch Flashbang" Height="750" Width="500" ResizeMode="NoResize">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="320"/>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Column="0" Grid.RowSpan="4">
-            <Rectangle.Fill>
-                <SolidColorBrush>
-                    <SolidColorBrush.Color>
-                        <Color A="145" R="100" G="70" B="255"/>
-                    </SolidColorBrush.Color>
-                </SolidColorBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Image Source="/Icon.ico" Grid.Column="0" Grid.Row="0" Height="40" Margin="15, 0, 0, 0" HorizontalAlignment="Left"></Image>
-        <TextBlock FontSize="20" HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" Margin="0, 0, 30, 0" Grid.Column="0">Twitch flashbang</TextBlock>
-        <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20" Grid.Column="0" TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap"><Run Text="Please select a donation handler."/></TextBlock>
-        <ComboBox x:Name="donoProviders" Background="DarkGray" Width="200" Height="40" FontSize="20" HorizontalContentAlignment="Center" Grid.Column="0" Grid.Row="2">
+        <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="0, 0, 0, 0" Text="Twitch Flashbang" />
+        <TextBlock HorizontalAlignment="Center" FontSize="20"  TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap"><Run Text="Please select a donation handler."/></TextBlock>
+        <ComboBox x:Name="donoProviders" Background="DarkGray" Width="200" Height="40" FontSize="20" HorizontalContentAlignment="Center"  Grid.Row="1">
             <ComboBoxItem Content="Streamlabs"/>
         </ComboBox>
-        <TextBlock x:Name="queuedFlashbangs" Foreground="White" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,40">Queued flashbangs: 0</TextBlock>
-        <Button x:Name="ReadyButton" Grid.Column="2" Grid.Row="3" Width="120" VerticalAlignment="Bottom" Margin="0, 30" Height="40" FontSize="20" Click="Button_Click_1" Content="Ready">
-            <Button.Foreground>
-                <SolidColorBrush>
-                    <SolidColorBrush.Color>
-                        <Color A="255" R="57" G="46" B="165"/>
-                    </SolidColorBrush.Color>
-                </SolidColorBrush>
-            </Button.Foreground>
-        </Button>
-        <Button x:Name="TestButton" Content="Test flash" Grid.Column="2" Grid.Row="3" Height="40" Width="120" FontSize="20" Margin="0, 50, 0, 0" Click="TestButton_Click">
-            <Button.Foreground>
-                <SolidColorBrush>
-                    <SolidColorBrush.Color>
-                        <Color A="255" R="57" G="46" B="165"/>
-                    </SolidColorBrush.Color>
-                </SolidColorBrush>
-            </Button.Foreground>
-        </Button>
-        <TextBlock Grid.Row="3" Grid.Column="0" Foreground="White" VerticalAlignment="Top" Margin="0,150,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Enter your streamlabs SocketAPI token."/>
-        <PasswordBox x:Name="SocketToken" Background="DarkGray" Width="200" PasswordChar="*" Grid.Row="3" Grid.Column="0" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
-        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="30" Foreground="White" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Settings:</TextBlock>
-        <TextBlock Foreground="White" Margin="20, 0, 0, 0" Grid.Row="1" Grid.Column="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"><Underline>Select events:</Underline></TextBlock>
-        <StackPanel x:Name="TwitchEvents" Margin="20, 15, 0, 0" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Height="150" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <CheckBox x:Name="onDonation" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,5" Foreground="White">Donations</CheckBox>
-            <CheckBox x:Name="onSubscription" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,5" Foreground="White">Twitch subscriptions</CheckBox>
-            <CheckBox x:Name="onFollow" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,5" Foreground="White">Twitch follow</CheckBox>
+        <TextBlock x:Name="queuedFlashbangs" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,70">Queued flashbangs: 0</TextBlock>
+        <Button x:Name="ReadyButton" Margin="100, 0, 0, 20" Grid.Row="4" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="40" FontSize="20" Click="Button_Click_1" Content="Ready"/>
+        <Button x:Name="TestButton" Content="Test flash" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 100, 20" Grid.Row="4" Height="40" Width="120" FontSize="20" Click="TestButton_Click"/>
+        <TextBlock Grid.Row="1"  VerticalAlignment="Bottom" Margin="0,0,0,35" TextWrapping="Wrap" TextAlignment="Center" Text="Enter your streamlabs SocketAPI token."/>
+        <PasswordBox x:Name="SocketToken" Background="DarkGray" Width="200" PasswordChar="*" Grid.Row="1"  Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Row="2" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top"><Underline>Select events:</Underline></TextBlock>
+        <StackPanel x:Name="TwitchEvents" Margin="0, 50, 0, 0" Grid.Row="2" Grid.RowSpan="2" Height="150" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <CheckBox x:Name="onDonation" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,5">Donations</CheckBox>
+            <CheckBox x:Name="onSubscription" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,5" >Twitch subscriptions</CheckBox>
+            <CheckBox x:Name="onFollow" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,5" >Twitch follow</CheckBox>
         </StackPanel>
-        <StackPanel Margin="0, 55, 0, 0" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="minDonationStackPanel">
-            <CheckBox x:Name="waitForMessageEnd" Foreground="White" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15"  >Wait for message end</CheckBox>
-            <CheckBox x:Name="WarnMe" Foreground="White" Grid.Row="3" Grid.Column="1" Margin="0, 15, 0, 0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15"  >Warn flashbang</CheckBox>
-            <StackPanel Grid.Row="3"  Grid.Column="1" Margin="0, 15, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock FontSize="13" Foreground="White" TextAlignment="Center" TextWrapping="Wrap">Minimum donation amount <Bold>(AMOUNT IN ANY CURRENCY)</Bold>:</TextBlock>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="40" Height="70"><Bold>Settings:</Bold></TextBlock>
+        <StackPanel Margin="0, 60, 0, 0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="minDonationStackPanel">
+            <CheckBox x:Name="waitForMessageEnd"  Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15"  >Wait for message end</CheckBox>
+            <CheckBox x:Name="WarnMe"  Grid.Row="3" Margin="0, 15, 0, 0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15"  >Warn flashbang</CheckBox>
+            <StackPanel Grid.Row="3" Margin="0, 15, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock FontSize="13"  TextAlignment="Center" TextWrapping="Wrap">Minimum donation amount <Bold>(AMOUNT IN ANY CURRENCY)</Bold>:</TextBlock>
                 <TextBox x:Name="minDonationAmount" Width="40" MaxLength="3"></TextBox>
             </StackPanel>
             <StackPanel Margin="0, 15, 0, 0">
-                <TextBlock FontSize="13" Foreground="White" TextAlignment="Center" TextWrapping="Wrap">Trigger command <Bold>(Default none)</Bold></TextBlock>
+                <TextBlock FontSize="13"  TextAlignment="Center" TextWrapping="Wrap">Trigger command <Bold>(Default none)</Bold></TextBlock>
                 <TextBox x:Name="triggerCommand" Width="200"></TextBox>
             </StackPanel>
         </StackPanel>

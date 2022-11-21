@@ -1,8 +1,19 @@
 # Twitch flashbang
-*Funny little app to torture streamers. Viewers donate, streamer go blind.*
-**(WINDOWS ONLY!)**
 
-![New Project](https://user-images.githubusercontent.com/80382462/197171306-2e924330-908e-4431-81da-a51b0ef804ae.png)
+![Downloads](https://img.shields.io/github/downloads/Exilon24/TwitchFlashbang/total) 
+![Repo size](https://img.shields.io/github/languages/code-size/Exilon24/TwitchFlashbang) 
+![Issues](https://img.shields.io/github/issues/Exilon24/TwitchFlashbang)
+
+![Commits per day](https://img.shields.io/github/commit-activity/m/Exilon24/TwitchFlashbang)
+![Last commit](https://img.shields.io/github/last-commit/Exilon24/TwitchFlashbang)
+
+![Followers](https://img.shields.io/github/followers/Exilon24?style=social)
+![Forks](https://img.shields.io/github/forks/Exilon24/TwitchFlashbang?style=social)
+![Stars](https://img.shields.io/github/stars/Exilon24/TwitchFlashbang?style=social)
+
+*Funny little app to torture streamers. Viewers donate, streamer go blind.*
+
+**(WINDOWS ONLY!)**
 
 Made by me because I was bored and this sounded funny. My first REAL project :)
 
